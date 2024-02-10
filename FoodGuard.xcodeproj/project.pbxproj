@@ -15,6 +15,11 @@
 		E432927C2B778B480046D8E4 /* FoodGuardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432927B2B778B480046D8E4 /* FoodGuardTests.swift */; };
 		E43292862B778B480046D8E4 /* FoodGuardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292852B778B480046D8E4 /* FoodGuardUITests.swift */; };
 		E43292882B778B480046D8E4 /* FoodGuardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292872B778B480046D8E4 /* FoodGuardUITestsLaunchTests.swift */; };
+		E43292992B7791230046D8E4 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292982B7791230046D8E4 /* Alert.swift */; };
+		E432929B2B77917D0046D8E4 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432929A2B77917D0046D8E4 /* ScannerView.swift */; };
+		E432929D2B7792220046D8E4 /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432929C2B7792220046D8E4 /* ScannerVC.swift */; };
+		E432929F2B77927D0046D8E4 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432929E2B77927D0046D8E4 /* BarcodeScannerView.swift */; };
+		E43292A22B7793140046D8E4 /* BarcodeScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292A12B7793140046D8E4 /* BarcodeScannerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		E43292812B778B480046D8E4 /* FoodGuardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodGuardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43292852B778B480046D8E4 /* FoodGuardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGuardUITests.swift; sourceTree = "<group>"; };
 		E43292872B778B480046D8E4 /* FoodGuardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGuardUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E43292982B7791230046D8E4 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		E432929A2B77917D0046D8E4 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		E432929C2B7792220046D8E4 /* ScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
+		E432929E2B77927D0046D8E4 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
+		E43292A12B7793140046D8E4 /* BarcodeScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +107,7 @@
 		E43292662B778B470046D8E4 /* FoodGuard */ = {
 			isa = PBXGroup;
 			children = (
+				E43292942B7790CB0046D8E4 /* BarcodeScanner */,
 				E43292672B778B470046D8E4 /* FoodGuardApp.swift */,
 				E43292692B778B470046D8E4 /* ContentView.swift */,
 				E432926B2B778B470046D8E4 /* Item.swift */,
@@ -130,6 +141,42 @@
 				E43292872B778B480046D8E4 /* FoodGuardUITestsLaunchTests.swift */,
 			);
 			path = FoodGuardUITests;
+			sourceTree = "<group>";
+		};
+		E43292942B7790CB0046D8E4 /* BarcodeScanner */ = {
+			isa = PBXGroup;
+			children = (
+				E43292972B7791070046D8E4 /* Screens */,
+				E43292962B7790F70046D8E4 /* Views */,
+				E43292952B7790E10046D8E4 /* Utilities */,
+			);
+			path = BarcodeScanner;
+			sourceTree = "<group>";
+		};
+		E43292952B7790E10046D8E4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E43292982B7791230046D8E4 /* Alert.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E43292962B7790F70046D8E4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E432929A2B77917D0046D8E4 /* ScannerView.swift */,
+				E432929C2B7792220046D8E4 /* ScannerVC.swift */,
+				E432929E2B77927D0046D8E4 /* BarcodeScannerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E43292972B7791070046D8E4 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E43292A12B7793140046D8E4 /* BarcodeScannerViewModel.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,7 +311,12 @@
 			files = (
 				E432926A2B778B470046D8E4 /* ContentView.swift in Sources */,
 				E432926C2B778B470046D8E4 /* Item.swift in Sources */,
+				E43292992B7791230046D8E4 /* Alert.swift in Sources */,
+				E432929F2B77927D0046D8E4 /* BarcodeScannerView.swift in Sources */,
+				E432929D2B7792220046D8E4 /* ScannerVC.swift in Sources */,
 				E43292682B778B470046D8E4 /* FoodGuardApp.swift in Sources */,
+				E43292A22B7793140046D8E4 /* BarcodeScannerViewModel.swift in Sources */,
+				E432929B2B77917D0046D8E4 /* ScannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,8 +476,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FoodGuard/Preview Content\"";
+				DEVELOPMENT_TEAM = 7MSM9LSACF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need you camera bro";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -460,8 +514,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FoodGuard/Preview Content\"";
+				DEVELOPMENT_TEAM = 7MSM9LSACF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need you camera bro";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

@@ -25,7 +25,7 @@ struct FoodGuardApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BarcodeScannerView()
         }
         .modelContainer(sharedModelContainer)
     }
