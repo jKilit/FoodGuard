@@ -13,52 +13,47 @@ struct BarcodeScannerView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
+            ZStack(alignment: .center) {
+                // Camera Screen
                 ScannerView(scannedCode: $viewModel.scannedCode, alertItem: $viewModel.alertItem)
-                    .frame(maxWidth: .infinity, maxHeight: 300)
-                    .background(Color.black)
+                    .edgesIgnoringSafeArea(.all)
 
-                VStack(spacing: 20) {
-                    Spacer()
-
+                // Overlay
+                VStack {
                     Image(systemName: "barcode.viewfinder")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 100, height: 100)
-                        .foregroundColor(.white)
-                        .padding()
-
-                    Text("Place the barcode inside the frame to scan.")
-                        .font(.subheadline)
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .padding()
-
-                    Spacer()
-
-                    Text("Scanned Barcode:")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding(.top, 10)
-
-                    Text(viewModel.statusText)
-                        .font(.title)
-                        .fontWeight(.bold)
+                        .frame(width: 200, height: 200)
                         .foregroundColor(.white)
                         .padding()
 
                     Spacer()
+
+                    // Text/Barcode Display
+                    VStack {
+                        Text("Place the barcode inside the frame to scan.")
+                            .font(.subheadline)
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .padding()
+                        
+                        VStack {
+                            Text("Scanned Barcode:")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+
+                            Text(viewModel.statusText)
+                                .font(.title)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity, alignment: .bottom) // Ensure it extends to the edges
+                        }
+                        .background(Color.black)
+                    }
                 }
-                .padding()
-                .background(Color.black.opacity(0.7))
-                .cornerRadius(16)
-                .shadow(radius: 5)
-
-                Spacer()
             }
-            .navigationTitle("Scanner")
-            .navigationBarTitleDisplayMode(.inline)
-            .background(Color.gray.opacity(0.1))
+            .navigationBarTitle("FoodGuard Scanner", displayMode: .inline)
         }
     }
 }
