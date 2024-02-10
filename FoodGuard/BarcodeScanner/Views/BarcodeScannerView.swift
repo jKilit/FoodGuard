@@ -7,16 +7,27 @@
 
 import Foundation
 import SwiftUI
+import SwiftUI
+
+enum Tab {
+    case home, screen2, scanner, screen4, screen5
+}
 
 struct BarcodeScannerView: View {
+    @State private var selectedTab: Tab = .scanner
     @State var viewModel = BarcodeScannerViewModel()
 
     var body: some View {
         NavigationView {
-            ZStack(alignment: .center) {
+            ZStack(alignment: .bottom) {
                 // Camera Screen
                 ScannerView(scannedCode: $viewModel.scannedCode, alertItem: $viewModel.alertItem)
                     .edgesIgnoringSafeArea(.all)
+
+                // Black overlay
+                Color.black.opacity(0.7)
+                    .edgesIgnoringSafeArea(.all)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
 
                 // Overlay
                 VStack {
@@ -27,33 +38,36 @@ struct BarcodeScannerView: View {
                         .foregroundColor(.white)
                         .padding()
 
-                    Spacer()
-
                     // Text/Barcode Display
                     VStack {
+                        Spacer()
+
                         Text("Place the barcode inside the frame to scan.")
                             .font(.subheadline)
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                             .padding()
-                        
-                        VStack {
-                            Text("Scanned Barcode:")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                                .padding()
 
-                            Text(viewModel.statusText)
-                                .font(.title)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity, alignment: .bottom) // Ensure it extends to the edges
-                        }
-                        .background(Color.black)
+
+                        Text("Scanned Barcode:")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+
+                        Text(viewModel.statusText)
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .background(Color.black)
+                            .padding(.bottom, 100) // Adjust the padding as needed
                     }
+                    .frame(maxWidth: .infinity)
                 }
+
+                BottomNavigationBar(selectedTab: $selectedTab)
             }
-            .navigationBarTitle("FoodGuard Scanner", displayMode: .inline)
+            .navigationBarTitle("Scanner", displayMode: .inline)
+            .navigationBarHidden(true)
         }
     }
 }

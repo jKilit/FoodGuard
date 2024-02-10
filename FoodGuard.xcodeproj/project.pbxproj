@@ -20,6 +20,7 @@
 		E432929D2B7792220046D8E4 /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432929C2B7792220046D8E4 /* ScannerVC.swift */; };
 		E432929F2B77927D0046D8E4 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432929E2B77927D0046D8E4 /* BarcodeScannerView.swift */; };
 		E43292A22B7793140046D8E4 /* BarcodeScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292A12B7793140046D8E4 /* BarcodeScannerViewModel.swift */; };
+		E43292A52B77AA960046D8E4 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292A42B77AA960046D8E4 /* NavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		E432929C2B7792220046D8E4 /* ScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
 		E432929E2B77927D0046D8E4 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
 		E43292A12B7793140046D8E4 /* BarcodeScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewModel.swift; sourceTree = "<group>"; };
+		E43292A42B77AA960046D8E4 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		E43292662B778B470046D8E4 /* FoodGuard */ = {
 			isa = PBXGroup;
 			children = (
+				E43292A32B77AA7F0046D8E4 /* Views */,
 				E43292942B7790CB0046D8E4 /* BarcodeScanner */,
 				E43292672B778B470046D8E4 /* FoodGuardApp.swift */,
 				E43292692B778B470046D8E4 /* ContentView.swift */,
@@ -177,6 +180,14 @@
 				E43292A12B7793140046D8E4 /* BarcodeScannerViewModel.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		E43292A32B77AA7F0046D8E4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E43292A42B77AA960046D8E4 /* NavigationBar.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +325,7 @@
 				E43292992B7791230046D8E4 /* Alert.swift in Sources */,
 				E432929F2B77927D0046D8E4 /* BarcodeScannerView.swift in Sources */,
 				E432929D2B7792220046D8E4 /* ScannerVC.swift in Sources */,
+				E43292A52B77AA960046D8E4 /* NavigationBar.swift in Sources */,
 				E43292682B778B470046D8E4 /* FoodGuardApp.swift in Sources */,
 				E43292A22B7793140046D8E4 /* BarcodeScannerViewModel.swift in Sources */,
 				E432929B2B77917D0046D8E4 /* ScannerView.swift in Sources */,
