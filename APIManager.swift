@@ -14,7 +14,7 @@ class FoodAPI {
     func loadFood(barcode: String) async throws {
         
         let baseUrl = "https://world.openfoodfacts.net/api/v2/"
-        var foodUrl = "product/\(barcode)?fields=product_name,ingredients_hierarchy"
+        let foodUrl = "product/\(barcode)?fields=product_name,ingredients_hierarchy"
         
         print("1")
         

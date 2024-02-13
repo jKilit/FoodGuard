@@ -19,13 +19,6 @@ struct ContentView: View {
                     Text("Loading...")
                 }
             }
-            /*.task {
-                do {
-                    try await API.loadFood()
-                } catch {
-                    print("Error loading food: \(error)")
-                }
-            }*/
         }
     }
 
