@@ -10,12 +10,6 @@ import Observation
 @Observable
 class FoodAPI {
     var foodModel: FoodModel?
-    /* //mabye declare it here instead
-    var barCodeModel: BarcodeScannerViewModel?
-    let baseUrl = "https://world.openfoodfacts.net/api/v2/"
-    var foodUrl: String {
-        return "product/\(barCodeModel?.scannedCode ?? "")?fields=product_name,ingredients_hierarchy"
-    } */
     
     func loadFood(barcode: String) async throws {
         

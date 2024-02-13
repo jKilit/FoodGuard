@@ -14,6 +14,9 @@ enum Tab {
 }
 
 struct BarcodeScannerView: View {
+    @State private var API = FoodAPI()
+    @State private var isFoodLoaded = false
+    
     @State private var selectedTab: Tab = .scanner
     @State var viewModel = BarcodeScannerViewModel()
 
@@ -54,17 +57,42 @@ struct BarcodeScannerView: View {
                             .foregroundColor(.white)
                             .padding()
 
-                        Text(viewModel.statusText)
-                            .font(.title)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                            .background(Color.black)
-                            .padding(.bottom, 100) // Adjust the padding as needed
+                        if isFoodLoaded {
+                            // Display product name when food is loaded
+                            Text("Product name: \(API.foodModel?.name ?? "N/A")")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding()
+                        } else {
+                            // Display scanned barcode
+                            Text("Scanned Barcode:")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding(.top, 10)
+
+                            Text(viewModel.statusText)
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding()
+                        }
                     }
                     .frame(maxWidth: .infinity)
                 }
 
                 BottomNavigationBar(selectedTab: $selectedTab)
+            }
+            .onChange(of: viewModel.scannedCode) { newScannedCode in
+                // Load food when the barcode is scanned
+                Task {
+                    do {
+                        try await API.loadFood(barcode: newScannedCode)
+                        isFoodLoaded = true
+                    } catch {
+                        print("Error loading food: \(error)")
+                    }
+                }
             }
             .navigationBarTitle("Scanner", displayMode: .inline)
             .navigationBarHidden(true)
