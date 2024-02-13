@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PreferencesView: View {
     @State var preferencesModel: PreferencesModel
+
     
     let ingredients = ["Lactose", "Eggs", "Nuts", "Gluten", "Soy", "Fish"]
     
@@ -18,7 +19,7 @@ struct PreferencesView: View {
             .aspectRatio(contentMode: .fit)
             .frame(height: 200)
             .padding()
-        
+                
         Text("Preferences:")
             .font(.title)
             .fontWeight(.bold)

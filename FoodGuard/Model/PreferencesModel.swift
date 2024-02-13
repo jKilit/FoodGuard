@@ -9,7 +9,7 @@ import Foundation
 import Observation
 
 @Observable
-class PreferencesModel: ObservableObject {
+class PreferencesModel {
     var selectedIngredients: Set<String> = []
 
     init() {
@@ -24,7 +24,7 @@ class PreferencesModel: ObservableObject {
         }
         savePreferences()
     }
-
+    
     
     //maybe fix enum for the values
     private func savePreferences() {
