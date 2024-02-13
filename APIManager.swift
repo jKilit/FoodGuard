@@ -10,17 +10,27 @@ import Observation
 @Observable
 class FoodAPI {
     var foodModel: FoodModel?
-
+    /* //mabye declare it here instead
+    var barCodeModel: BarcodeScannerViewModel?
+    let baseUrl = "https://world.openfoodfacts.net/api/v2/"
+    var foodUrl: String {
+        return "product/\(barCodeModel?.scannedCode ?? "")?fields=product_name,ingredients_hierarchy"
+    } */
+    
     func loadFood(barcode: String) async throws {
         
         let baseUrl = "https://world.openfoodfacts.net/api/v2/"
+        var foodUrl = "product/\(barcode)?fields=product_name,ingredients_hierarchy"
         
+        print("1")
         
-        guard let url = URL(string: baseUrl) else {
+        guard let url = URL(string: baseUrl + foodUrl) else {
             return
         }
+        print("2")
         
         do {
+            // Use async/await here if your Swift version supports it
             let (data, _) = try await URLSession.shared.data(from: url)
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -35,4 +45,5 @@ class FoodAPI {
         }
     }
 }
+
 
