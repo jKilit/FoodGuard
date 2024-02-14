@@ -14,6 +14,7 @@
 		26ADD56F2B7C2011009E069E /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ADD56E2B7C2011009E069E /* PreferencesView.swift */; };
 		B9DFAA912B7BE7A100052E2D /* FoodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DFAA902B7BE7A100052E2D /* FoodData.swift */; };
 		B9DFAA932B7BEC2800052E2D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DFAA922B7BEC2800052E2D /* APIManager.swift */; };
+		B9DFAA952B7C312D00052E2D /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DFAA942B7C312D00052E2D /* ProductModel.swift */; };
 		E43292682B778B470046D8E4 /* FoodGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292672B778B470046D8E4 /* FoodGuardApp.swift */; };
 		E432926A2B778B470046D8E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292692B778B470046D8E4 /* ContentView.swift */; };
 		E432926C2B778B470046D8E4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432926B2B778B470046D8E4 /* Item.swift */; };
