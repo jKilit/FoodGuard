@@ -10,7 +10,7 @@ import Observation
 
 @Observable
 class PreferencesModel {
-    var selectedIngredients: Set<String> = []
+    var selectedIngredients: Set<String> = ["Lactose", "Eggs", "Nuts", "Gluten", "Soy", "Fish"]
 
     init() {
         loadPreferences()
