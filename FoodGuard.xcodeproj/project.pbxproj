@@ -12,9 +12,9 @@
 		26ADD56B2B7BFCC5009E069E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ADD56A2B7BFCC5009E069E /* HomeView.swift */; };
 		26ADD56D2B7C1EDC009E069E /* PreferencesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ADD56C2B7C1EDC009E069E /* PreferencesModel.swift */; };
 		26ADD56F2B7C2011009E069E /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ADD56E2B7C2011009E069E /* PreferencesView.swift */; };
+		26AEC1712B83767900CD5A95 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AEC1702B83767900CD5A95 /* ProductModel.swift */; };
 		B9DFAA912B7BE7A100052E2D /* FoodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DFAA902B7BE7A100052E2D /* FoodData.swift */; };
 		B9DFAA932B7BEC2800052E2D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DFAA922B7BEC2800052E2D /* APIManager.swift */; };
-		B9DFAA952B7C312D00052E2D /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DFAA942B7C312D00052E2D /* ProductModel.swift */; };
 		E43292682B778B470046D8E4 /* FoodGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292672B778B470046D8E4 /* FoodGuardApp.swift */; };
 		E432926A2B778B470046D8E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292692B778B470046D8E4 /* ContentView.swift */; };
 		E432926C2B778B470046D8E4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432926B2B778B470046D8E4 /* Item.swift */; };
@@ -54,6 +54,7 @@
 		26ADD56A2B7BFCC5009E069E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		26ADD56C2B7C1EDC009E069E /* PreferencesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesModel.swift; sourceTree = "<group>"; };
 		26ADD56E2B7C2011009E069E /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		26AEC1702B83767900CD5A95 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductModel.swift; path = ../../ProductModel.swift; sourceTree = "<group>"; };
 		B9DFAA902B7BE7A100052E2D /* FoodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodData.swift; sourceTree = "<group>"; };
 		B9DFAA922B7BEC2800052E2D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		B9DFAA942B7C312D00052E2D /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
