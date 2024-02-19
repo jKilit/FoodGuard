@@ -5,12 +5,11 @@ struct ProductView: View {
     @State private var productModel = ProductModel()
 
     let productName: String
-    let ingredients = ["Lactose", "Eggs", "Nuts", "Gluten", "Soy", "Fish"]
-
 
 
     var body: some View {
         VStack {
+            let ingredients = Array(preferencesModel.selectedIngredients)
             let isProductSafe:Bool = productModel.compareIngredients(ingredients)
 
             Image("1")

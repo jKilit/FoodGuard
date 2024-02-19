@@ -56,6 +56,7 @@
 		26ADD56E2B7C2011009E069E /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		B9DFAA902B7BE7A100052E2D /* FoodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodData.swift; sourceTree = "<group>"; };
 		B9DFAA922B7BEC2800052E2D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		B9DFAA942B7C312D00052E2D /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		E43292642B778B470046D8E4 /* FoodGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43292672B778B470046D8E4 /* FoodGuardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGuardApp.swift; sourceTree = "<group>"; };
 		E43292692B778B470046D8E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 			children = (
 				26ADD5662B7BEA46009E069E /* FoodModel.swift */,
 				26ADD56C2B7C1EDC009E069E /* PreferencesModel.swift */,
+				B9DFAA942B7C312D00052E2D /* ProductModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -361,6 +363,7 @@
 				B9DFAA932B7BEC2800052E2D /* APIManager.swift in Sources */,
 				26ADD56B2B7BFCC5009E069E /* HomeView.swift in Sources */,
 				E432926A2B778B470046D8E4 /* ContentView.swift in Sources */,
+				B9DFAA952B7C312D00052E2D /* ProductModel.swift in Sources */,
 				E432926C2B778B470046D8E4 /* Item.swift in Sources */,
 				26ADD5672B7BEA46009E069E /* FoodModel.swift in Sources */,
 				E43292992B7791230046D8E4 /* Alert.swift in Sources */,
