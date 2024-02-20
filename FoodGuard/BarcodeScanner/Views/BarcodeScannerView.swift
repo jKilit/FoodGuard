@@ -27,10 +27,9 @@ struct BarcodeScannerView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             VStack {
-                Image(systemName: "barcode.viewfinder")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 200, height: 200)
+                
+                Text("Place the barcode inside the frame to scan.")
+                    .font(.subheadline)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                     .padding()
