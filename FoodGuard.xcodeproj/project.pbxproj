@@ -12,7 +12,6 @@
 		26ADD56B2B7BFCC5009E069E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ADD56A2B7BFCC5009E069E /* HomeView.swift */; };
 		26ADD56D2B7C1EDC009E069E /* PreferencesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ADD56C2B7C1EDC009E069E /* PreferencesModel.swift */; };
 		26ADD56F2B7C2011009E069E /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ADD56E2B7C2011009E069E /* PreferencesView.swift */; };
-		26AEC1712B83767900CD5A95 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AEC1702B83767900CD5A95 /* ProductModel.swift */; };
 		B9DFAA912B7BE7A100052E2D /* FoodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DFAA902B7BE7A100052E2D /* FoodData.swift */; };
 		B9DFAA932B7BEC2800052E2D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DFAA922B7BEC2800052E2D /* APIManager.swift */; };
 		E43292682B778B470046D8E4 /* FoodGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292672B778B470046D8E4 /* FoodGuardApp.swift */; };
@@ -28,7 +27,8 @@
 		E432929D2B7792220046D8E4 /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432929C2B7792220046D8E4 /* ScannerVC.swift */; };
 		E432929F2B77927D0046D8E4 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432929E2B77927D0046D8E4 /* BarcodeScannerView.swift */; };
 		E43292A22B7793140046D8E4 /* BarcodeScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292A12B7793140046D8E4 /* BarcodeScannerViewModel.swift */; };
-		E43292A52B77AA960046D8E4 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292A42B77AA960046D8E4 /* NavigationBar.swift */; };
+		E4CDA92E2B83A9DB00BDA4DC /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CDA92D2B83A9DB00BDA4DC /* ProductModel.swift */; };
+		E4CDA9302B83AA4100BDA4DC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CDA92F2B83AA4100BDA4DC /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,6 @@
 		26ADD56A2B7BFCC5009E069E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		26ADD56C2B7C1EDC009E069E /* PreferencesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesModel.swift; sourceTree = "<group>"; };
 		26ADD56E2B7C2011009E069E /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
-		26AEC1702B83767900CD5A95 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductModel.swift; path = ../../ProductModel.swift; sourceTree = "<group>"; };
 		B9DFAA902B7BE7A100052E2D /* FoodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodData.swift; sourceTree = "<group>"; };
 		B9DFAA922B7BEC2800052E2D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		E43292642B778B470046D8E4 /* FoodGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +73,8 @@
 		E432929C2B7792220046D8E4 /* ScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
 		E432929E2B77927D0046D8E4 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
 		E43292A12B7793140046D8E4 /* BarcodeScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewModel.swift; sourceTree = "<group>"; };
-		E43292A42B77AA960046D8E4 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		E4CDA92D2B83A9DB00BDA4DC /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		E4CDA92F2B83AA4100BDA4DC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +105,7 @@
 		26ADD5652B7BEA2E009E069E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E4CDA92D2B83A9DB00BDA4DC /* ProductModel.swift */,
 				26ADD5662B7BEA46009E069E /* FoodModel.swift */,
 				26ADD56C2B7C1EDC009E069E /* PreferencesModel.swift */,
 			);
@@ -222,9 +223,9 @@
 			children = (
 				26ADD56E2B7C2011009E069E /* PreferencesView.swift */,
 				E43292692B778B470046D8E4 /* ContentView.swift */,
-				E43292A42B77AA960046D8E4 /* NavigationBar.swift */,
 				26ADD5682B7BF7FF009E069E /* ProductView.swift */,
 				26ADD56A2B7BFCC5009E069E /* HomeView.swift */,
+				E4CDA92F2B83AA4100BDA4DC /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -362,6 +363,8 @@
 				B9DFAA932B7BEC2800052E2D /* APIManager.swift in Sources */,
 				26ADD56B2B7BFCC5009E069E /* HomeView.swift in Sources */,
 				E432926A2B778B470046D8E4 /* ContentView.swift in Sources */,
+				E4CDA9302B83AA4100BDA4DC /* SettingsView.swift in Sources */,
+				E4CDA92E2B83A9DB00BDA4DC /* ProductModel.swift in Sources */,
 				E432926C2B778B470046D8E4 /* Item.swift in Sources */,
 				26ADD5672B7BEA46009E069E /* FoodModel.swift in Sources */,
 				E43292992B7791230046D8E4 /* Alert.swift in Sources */,
@@ -369,7 +372,6 @@
 				B9DFAA912B7BE7A100052E2D /* FoodData.swift in Sources */,
 				E432929F2B77927D0046D8E4 /* BarcodeScannerView.swift in Sources */,
 				E432929D2B7792220046D8E4 /* ScannerVC.swift in Sources */,
-				E43292A52B77AA960046D8E4 /* NavigationBar.swift in Sources */,
 				E43292682B778B470046D8E4 /* FoodGuardApp.swift in Sources */,
 				E43292A22B7793140046D8E4 /* BarcodeScannerViewModel.swift in Sources */,
 				26ADD56F2B7C2011009E069E /* PreferencesView.swift in Sources */,

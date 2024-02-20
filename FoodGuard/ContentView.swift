@@ -1,28 +1,54 @@
-//
-//  ContentView.swift
-//  FoodGuard
-//
-//  Created by Edin Nasic on 2024-02-10.
-//
-
 import SwiftUI
 import SwiftData
 
 struct ContentView: View {
     @State private var API = FoodAPI()
-    
+    @State private var preferencesModel = PreferencesModel()
+
     var body: some View {
-            VStack {
-                if let foodModel = API.foodModel {
-                    Text("Product name: \(foodModel.name)")
-                } else {
-                    Text("Loading...")
-                }
+        TabView {
+            NavigationStack {
+                HomeView()
+            }
+            .tabItem {
+                Label("Home", systemImage: "house")
+            }
+
+            NavigationStack {
+                PreferencesView(preferencesModel: preferencesModel)
+            }
+            .tabItem {
+                Label("My preferences", systemImage: "square.and.pencil")
+            }
+
+            NavigationStack {
+                BarcodeScannerView()
+            }
+            .tabItem {
+                Label("Scanner", systemImage: "barcode.viewfinder")
+            }
+
+            NavigationStack {
+                ProductView(productName: "Messi")
+            }
+            .tabItem {
+                Label("Products", systemImage: "cart")
+            }
+
+            NavigationStack {
+                SettingsView()
+            }
+            .tabItem {
+                Label("Settings", systemImage: "gear")
             }
         }
-    }
 
-// Use Preview instead of #Preview
-#Preview {
-    ContentView()
-}
+               /* if let foodModel = API.foodModel {
+                    Text("Product name: (foodModel.name)")
+                } else {
+                    Text("Loading...")
+                }*/
+            }
+        }
+///
+

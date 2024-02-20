@@ -11,7 +11,7 @@ struct PreferencesView: View {
     @State var preferencesModel: PreferencesModel
 
     
-    let ingredients = ["1", "Eggs", "Nuts", "Gluten", "Soy", "Fish"]
+    let ingredients = ["Khanzir", "Eggs", "Nuts", "Gluten", "Soy", "Fish", "People from Kellef"]
     var body: some View {
         Image("1")
             .resizable()
@@ -19,7 +19,7 @@ struct PreferencesView: View {
             .frame(height: 200)
             .padding()
                 
-        Text("Preferences:")
+        Text("I don't want to eat:")
             .font(.title)
             .fontWeight(.bold)
             .padding(.bottom, 10)
