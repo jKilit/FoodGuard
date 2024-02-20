@@ -4,7 +4,7 @@ import SwiftData
 struct ContentView: View {
     @State private var API = FoodAPI()
     @State private var preferencesModel = PreferencesModel()
-
+    
     var body: some View {
         TabView {
             NavigationStack {
@@ -13,28 +13,21 @@ struct ContentView: View {
             .tabItem {
                 Label("Home", systemImage: "house")
             }
-
+            
             NavigationStack {
                 PreferencesView(preferencesModel: preferencesModel)
             }
             .tabItem {
                 Label("My preferences", systemImage: "square.and.pencil")
             }
-
+            
             NavigationStack {
                 BarcodeScannerView()
             }
             .tabItem {
                 Label("Scanner", systemImage: "barcode.viewfinder")
             }
-
-            NavigationStack {
-                ProductView(productName: "Messi")
-            }
-            .tabItem {
-                Label("Products", systemImage: "cart")
-            }
-
+            
             NavigationStack {
                 SettingsView()
             }
@@ -42,13 +35,13 @@ struct ContentView: View {
                 Label("Settings", systemImage: "gear")
             }
         }
+        
+        /* if let foodModel = API.foodModel {
+         Text("Product name: (foodModel.name)")
+         } else {
+         Text("Loading...")
+         }*/
+    }
+}
 
-               /* if let foodModel = API.foodModel {
-                    Text("Product name: (foodModel.name)")
-                } else {
-                    Text("Loading...")
-                }*/
-            }
-        }
-///
 

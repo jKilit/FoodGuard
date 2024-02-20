@@ -16,9 +16,9 @@ enum Tab {
 struct BarcodeScannerView: View {
     @State private var API = FoodAPI()
     @State private var isFoodLoaded = false
-    
-    @State private var selectedTab: Tab = .scanner
     @State var viewModel = BarcodeScannerViewModel()
+    @State private var isActiveProductView = false
+    @State private var productName: String = ""
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -57,12 +57,27 @@ struct BarcodeScannerView: View {
                         .padding()
                     
                     if isFoodLoaded {
-                        // Display product name when food is loaded
-                        Text("Product name: \(API.foodModel?.name ?? "N/A")")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding()
+                        // Instead of displaying product details here, show a button to navigate to ProductView
+                        NavigationLink(
+                                    destination: ProductView(productName: productName, ingredients: API.foodModel?.ingredients ?? []),
+                                    isActive: $isActiveProductView
+                                ) {
+                            EmptyView()
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        
+                        Button(action: {
+                            productName = API.foodModel?.name ?? "N/A"
+                            isActiveProductView = true
+                        }) {
+                            Text("View Product Details")
+                                .foregroundColor(.white)
+                                .padding()
+                        }
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                        .padding()
+                        .opacity(isFoodLoaded ? 1.0 : 0.0) // Show the button only when food is loaded
                     } else {
                         // Display scanned barcode
                         Text("Scanned Barcode:")
@@ -93,6 +108,7 @@ struct BarcodeScannerView: View {
                 }
             }
         }
+        .navigationBarHidden(true)
     }
 }
 

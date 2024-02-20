@@ -5,12 +5,12 @@ struct ProductView: View {
     @State private var productModel = ProductModel()
 
     let productName: String
-
+    let ingredients: [String]
 
     var body: some View {
         VStack {
-            let ingredients = Array(preferencesModel.selectedIngredients)
-            let isProductSafe:Bool = productModel.compareIngredients(ingredients)
+            let preferences = Array(preferencesModel.selectedIngredients)
+            let isProductSafe:Bool = productModel.compareIngredients(preferences)
 
             Image("1")
                 .resizable()
@@ -48,11 +48,23 @@ struct ProductView: View {
                     .foregroundColor(.red)
             }
 
-            // Form with ingredients
+            // Form with preferences
             Form {
-                Section(header: Text("Ingredients").font(.headline).foregroundColor(isProductSafe ? .green : .red)) {
-                    ForEach(ingredients, id: \.self) { ingredient in
+                Section(header: Text("Preferences (Ingredients)").font(.headline).foregroundColor(isProductSafe ? .green : .red)) {
+                    ForEach(preferences, id: \.self) { ingredient in
                         Text(ingredient)
+                    }
+                }
+            }
+            
+            // Form with ingredients for testing
+            Form {
+                Section(header: Text("Ingredients (for testing)").font(.headline).foregroundColor(isProductSafe ? .green : .red)) {
+                    ForEach(ingredients, id: \.self) { ingredient in
+                        // Remove "en:" prefix from each ingredient
+                        let cleanedIngredient = ingredient.replacingOccurrences(of: "en:", with: "")
+                        
+                        Text(cleanedIngredient)
                     }
                 }
             }
