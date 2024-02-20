@@ -1,5 +1,6 @@
 import SwiftUI
 
+
 struct ProductView: View {
     @State private var preferencesModel = PreferencesModel()
     @State private var productModel = ProductModel()
@@ -10,7 +11,7 @@ struct ProductView: View {
     var body: some View {
         VStack {
             let preferences = Array(preferencesModel.selectedIngredients)
-            let isProductSafe:Bool = productModel.compareIngredients(preferences)
+            let isProductSafe: Bool = productModel.compareIngredients(ingredients, productName: productName)
 
             Image("1")
                 .resizable()
@@ -41,6 +42,17 @@ struct ProductView: View {
                     .foregroundColor(.red)
                     .padding()
 
+              /* // Display matched products
+                if !productModel.matchedProducts.isEmpty {
+                    Text("Matched Products:")
+                        .font(.headline)
+                        .padding(.top, 10)
+                    
+                    ForEach(productModel.matchedProducts, id: \.self) { matchedProduct in
+                        Text(matchedProduct)
+                    }
+                }*/
+
                 // Red cross image
                 Image(systemName: "xmark.circle.fill")
                     .resizable()
@@ -56,14 +68,14 @@ struct ProductView: View {
                     }
                 }
             }
-            
+
             // Form with ingredients for testing
             Form {
                 Section(header: Text("Ingredients (for testing)").font(.headline).foregroundColor(isProductSafe ? .green : .red)) {
                     ForEach(ingredients, id: \.self) { ingredient in
                         // Remove "en:" prefix from each ingredient
                         let cleanedIngredient = ingredient.replacingOccurrences(of: "en:", with: "")
-                        
+
                         Text(cleanedIngredient)
                     }
                 }

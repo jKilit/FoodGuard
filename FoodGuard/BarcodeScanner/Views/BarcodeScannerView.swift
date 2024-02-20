@@ -53,9 +53,9 @@ struct BarcodeScannerView: View {
                     if isFoodLoaded {
                         // Instead of displaying product details here, show a button to navigate to ProductView
                         NavigationLink(
-                                    destination: ProductView(productName: productName, ingredients: API.foodModel?.ingredients ?? []),
-                                    isActive: $isActiveProductView
-                                ) {
+                            destination: ProductView(productName: productName, ingredients: API.foodModel?.ingredients ?? []),
+                            isActive: $isActiveProductView
+                        ) {
                             EmptyView()
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -85,7 +85,7 @@ struct BarcodeScannerView: View {
                             .foregroundColor(.white)
                             .padding()
                     }
-                    .frame(maxWidth: .infinity)
+                    
                 }
                 
             }
@@ -101,6 +101,7 @@ struct BarcodeScannerView: View {
                     print("Error loading food: \(error)")
                 }
             }
+            
         }
         .navigationBarHidden(true)
     }
