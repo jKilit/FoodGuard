@@ -9,10 +9,6 @@ import Foundation
 import SwiftUI
 import SwiftUI
 
-enum Tab {
-    case home, screen2, scanner, screen4, screen5
-}
-
 struct BarcodeScannerView: View {
     @State private var API = FoodAPI()
     @State private var isFoodLoaded = false
@@ -22,22 +18,21 @@ struct BarcodeScannerView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            // Camera Screen
             ScannerView(scannedCode: $viewModel.scannedCode, alertItem: $viewModel.alertItem)
                 .edgesIgnoringSafeArea(.all)
             
             // Black overlay
-            Color.black.opacity(0.7)
+            Color.black.opacity(0.4)
                 .edgesIgnoringSafeArea(.all)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
-            // Overlay
             VStack {
                 Image(systemName: "barcode.viewfinder")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 200, height: 200)
                     .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
                     .padding()
                 
                 // Text/Barcode Display
@@ -91,10 +86,10 @@ struct BarcodeScannerView: View {
                             .foregroundColor(.white)
                             .padding()
                     }
+                    .frame(maxWidth: .infinity)
                 }
-                .frame(maxWidth: .infinity)
+                
             }
-            
             
         }
         .onChange(of: viewModel.scannedCode) { newScannedCode in
