@@ -12,8 +12,9 @@ import Observation
 class ProductModel {
     let preferencesModel = PreferencesModel()
 
-    func compareIngredients(_ otherIngredients: [String]) -> Bool {//Fixa check så preferenceser inte finns i array
-        return preferencesModel.selectedIngredients == Set(otherIngredients)
+    func compareIngredients(_ otherIngredients: [String]) -> Bool {
+        return preferencesModel.selectedIngredients.elementsEqual(otherIngredients)
+
     }
 
 }

@@ -26,7 +26,7 @@ struct PreferencesView: View {
         
         
         List {
-            ForEach(ingredients, id: \.self) { ingredient in
+            ForEach(ingredients, id: \.self) { ingredient in //is off by default fix this
                 Toggle(isOn: Binding(
                     get: { preferencesModel.selectedIngredients.contains(ingredient) },
                     set: { _ in preferencesModel.toggleIngredient(ingredient) }

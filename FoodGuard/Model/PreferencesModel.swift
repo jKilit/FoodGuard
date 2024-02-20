@@ -12,6 +12,7 @@ import Observation
 class PreferencesModel {
     var selectedIngredients: Set<String> = ["Lactose", "Eggs", "Nuts", "Gluten", "Soy", "Fish"]
 
+    
     init() {
         loadPreferences()
     }
@@ -22,9 +23,9 @@ class PreferencesModel {
         } else {
             selectedIngredients.insert(ingredient)
         }
+        print(selectedIngredients)
         savePreferences()
     }
-    
     
     //maybe fix enum for the values
     private func savePreferences() {
