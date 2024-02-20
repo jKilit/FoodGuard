@@ -35,7 +35,7 @@ struct BarcodeScannerView: View {
                 Spacer(minLength: 200)
                 
                 VStack{
-                    Image(systemName: "barcode.viewfinder")
+                    Image(systemName: "viewfinder")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 200, height: 200)
