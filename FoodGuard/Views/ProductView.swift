@@ -7,6 +7,7 @@ struct ProductView: View {
 
     let productName: String
     let ingredients: [String]
+    let ingredientsTags: [String]
 
     var body: some View {
         let isProductSafe: Bool = productModel.compareIngredients(ingredients, productName: productName)

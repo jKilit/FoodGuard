@@ -25,4 +25,8 @@ class ProductModel {
         
         return intersection.isEmpty
     }
+    func checkTags(){
+        
+    }
+
 }

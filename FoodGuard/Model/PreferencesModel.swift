@@ -37,4 +37,5 @@ class PreferencesModel {
             selectedIngredients = Set(savedIngredients)
         }
     }
+    
 }

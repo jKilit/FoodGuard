@@ -53,7 +53,7 @@ struct BarcodeScannerView: View {
                     if isFoodLoaded {
                         // Instead of displaying product details here, show a button to navigate to ProductView
                         NavigationLink(
-                            destination: ProductView(productName: productName, ingredients: API.foodModel?.ingredients ?? []),
+                            destination: ProductView(productName: productName, ingredients: API.foodModel?.ingredients ?? [], ingredientsTags: API.foodModel?.ingredientsTags ?? []),
                             isActive: $isActiveProductView
                         ) {
                             EmptyView()
