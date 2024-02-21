@@ -10,7 +10,7 @@ struct ProductView: View {
     let ingredientsTags: [String]
 
     var body: some View {
-        let isProductSafe: Bool = productModel.compareIngredients(ingredients, productName: productName)
+        let isProductSafe: Bool = productModel.compareIngredients(ingredients, ingredientTags: ingredientsTags, productName: productName)
         VStack {
             let preferences = Array(preferencesModel.selectedIngredients)
 
@@ -36,17 +36,6 @@ struct ProductView: View {
                 Text("This product contains ingredients not in your preferences!")
                     .foregroundColor(.red)
                     .padding()
-
-              /* // Display matched products
-                if !productModel.matchedProducts.isEmpty {
-                    Text("Matched Products:")
-                        .font(.headline)
-                        .padding(.top, 10)
-                    
-                    ForEach(productModel.matchedProducts, id: \.self) { matchedProduct in
-                        Text(matchedProduct)
-                    }
-                }*/
 
                 // Red cross image
                 Image(systemName: "xmark.circle.fill")

@@ -1,10 +1,3 @@
-//
-//  ProductModel.swift
-//  FoodGuard
-//
-//  Created by Jonathan Kilit on 2024-02-14.
-//
-
 import Foundation
 import Observation
 
@@ -12,21 +5,35 @@ import Observation
 class ProductModel {
     let preferencesModel = PreferencesModel()
     var matchedProducts: [String] = []
-
-    func compareIngredients(_ otherIngredients: [String], productName: String) -> Bool {//ändra namn?
-        let cleanedOtherIngredients = otherIngredients.map { $0.replacingOccurrences(of: "en:", with: "") } //cleanar upp arrayens strings och tar bort ":en"
+    
+    func compareIngredients(_ otherIngredients: [String], ingredientTags: [String], productName: String) -> Bool {
+        let cleanedOtherIngredients = otherIngredients.map { $0.replacingOccurrences(of: "en:", with: "") }
         
         let intersection = Set(preferencesModel.selectedIngredients).intersection(cleanedOtherIngredients)
         
-        if !intersection.isEmpty {
-            // If there's a match, add the product name to the matchedProducts array
-            matchedProducts.append(productName)
+        let isVegan = isProductVegan(ingredientTags: ingredientTags)
+        let isPalmOilFree = isPalmOilFree(ingredientTags: ingredientTags)
+        let palmoilInPreference = preferencesModel.selectedIngredients.contains("palm oil")
+        let veganInPreference = preferencesModel.selectedIngredients.contains("animal products")
+        
+        if veganInPreference && !isVegan {
+            return false
         }
-        
-        return intersection.isEmpty
-    }
-    func checkTags(){
-        
-    }
+        if palmoilInPreference && !isPalmOilFree{
+            return false
+        }
+        else if !intersection.isEmpty {
+            return false
+        }
 
+        return true
+    }
+    
+    func isProductVegan(ingredientTags: [String]) -> Bool {
+        return !ingredientTags.contains("en:non-vegan")
+    }
+    
+    func isPalmOilFree(ingredientTags: [String]) -> Bool {
+        return !ingredientTags.contains("en:palm-oil")
+    }
 }
