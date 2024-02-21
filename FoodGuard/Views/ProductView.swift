@@ -9,17 +9,11 @@ struct ProductView: View {
     let ingredients: [String]
 
     var body: some View {
+        let isProductSafe: Bool = productModel.compareIngredients(ingredients, productName: productName)
         VStack {
             let preferences = Array(preferencesModel.selectedIngredients)
-            let isProductSafe: Bool = productModel.compareIngredients(ingredients, productName: productName)
 
-            Image("1")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 200)
-                .padding()
-
-            Text("Product name: \(productName)")
+            Text(productName)
                 .font(.title)
                 .foregroundColor(isProductSafe ? .green : .red)
                 .fontWeight(.bold)
@@ -61,27 +55,28 @@ struct ProductView: View {
             }
 
             // Form with preferences
-            Form {
-                Section(header: Text("Preferences (Ingredients)").font(.headline).foregroundColor(isProductSafe ? .green : .red)) {
+            List {
+                Section(header: Text("Preferences (Ingredients)").font(.title3).foregroundColor(isProductSafe ? .green : .red)) {
                     ForEach(preferences, id: \.self) { ingredient in
                         Text(ingredient)
+                            .padding(.vertical, 8)
                     }
                 }
-            }
 
-            // Form with ingredients for testing
-            Form {
-                Section(header: Text("Ingredients (for testing)").font(.headline).foregroundColor(isProductSafe ? .green : .red)) {
+                Section(header: Text("Ingredients (for testing)").font(.title3).foregroundColor(isProductSafe ? .green : .red)) {
                     ForEach(ingredients, id: \.self) { ingredient in
                         // Remove "en:" prefix from each ingredient
                         let cleanedIngredient = ingredient.replacingOccurrences(of: "en:", with: "")
 
                         Text(cleanedIngredient)
+                            .padding(.vertical, 8)
                     }
                 }
             }
-
-            Spacer()
+            .listStyle(GroupedListStyle())
+            .frame(height: UIScreen.main.bounds.height / 2) // Half of the screen height
+            .cornerRadius(16)
+            .shadow(radius: 5)
         }
         .cornerRadius(16)
         .shadow(radius: 5)
