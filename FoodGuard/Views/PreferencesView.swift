@@ -11,7 +11,7 @@ struct PreferencesView: View {
     @State var preferencesModel: PreferencesModel
 
     
-    let ingredients = ["lactose", "sugar", "eggs", "nuts","gluten", "soy", "fish", "animal products", "palm oil"]
+    let ingredients = ["lactose", "sugar", "eggs", "nuts","gluten", "soy", "fish", "animal products", "palm oil", "E-additives"]
     var body: some View {
         Image("1")
             .resizable()
