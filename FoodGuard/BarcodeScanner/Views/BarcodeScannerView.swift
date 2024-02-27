@@ -15,80 +15,64 @@ struct BarcodeScannerView: View {
     @State var viewModel = BarcodeScannerViewModel()
     @State private var isActiveProductView = false
     @State private var productName: String = ""
+    @State private var isScannerActive = true
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            ScannerView(scannedCode: $viewModel.scannedCode, alertItem: $viewModel.alertItem)
-                .edgesIgnoringSafeArea(.all)
+            if isScannerActive {
+                ScannerView(scannedCode: $viewModel.scannedCode, alertItem: $viewModel.alertItem)
+                    .edgesIgnoringSafeArea(.all)
+            }
             
             // Black overlay
             Color.black.opacity(0.4)
                 .edgesIgnoringSafeArea(.all)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
+            // Text/Barcode Display
             VStack {
+                Spacer()
                 
-                Text("Place the barcode inside the frame to scan.")
-                    .font(.subheadline)
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                    .padding()
                 
-                // Text/Barcode Display
-                VStack {
-                    Spacer()
+                if isFoodLoaded {
+                    Text("Barcode successfully scanned!")
+                        .font(.subheadline)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding()
                     
+                    // Instead of displaying product details here, show a button to navigate to ProductView
+                    NavigationLink(
+                        destination: ProductView(productName: productName, ingredients: API.foodModel?.ingredients ?? [], ingredientsTags: API.foodModel?.ingredientsTags ?? []),
+                        isActive: $isActiveProductView
+                    ) {
+                        EmptyView()
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    Button(action: {
+                        productName = API.foodModel?.name ?? "N/A"
+                        isActiveProductView = true
+                    }) {
+                        Text("View Product Details")
+                            .foregroundColor(.white)
+                            .padding()
+                    }
+                    .background(Color.blue)
+                    .cornerRadius(8)
+                    .padding()
+                    .opacity(isFoodLoaded ? 1.0 : 0.0) // Show the button only when food is loaded
+                } else {
                     Text("Place the barcode inside the frame to scan.")
                         .font(.subheadline)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding()
                     
-                    
-                    Text("Scanned Barcode:")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                    
-                    if isFoodLoaded {
-                        // Instead of displaying product details here, show a button to navigate to ProductView
-                        NavigationLink(
-                            destination: ProductView(productName: productName, ingredients: API.foodModel?.ingredients ?? [], ingredientsTags: API.foodModel?.ingredientsTags ?? []),
-                            isActive: $isActiveProductView
-                        ) {
-                            EmptyView()
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                        
-                        Button(action: {
-                            productName = API.foodModel?.name ?? "N/A"
-                            isActiveProductView = true
-                        }) {
-                            Text("View Product Details")
-                                .foregroundColor(.white)
-                                .padding()
-                        }
-                        .background(Color.blue)
-                        .cornerRadius(8)
-                        .padding()
-                        .opacity(isFoodLoaded ? 1.0 : 0.0) // Show the button only when food is loaded
-                    } else {
-                        // Display scanned barcode
-                        Text("Scanned Barcode:")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding(.top, 10)
-                        
-                        Text(viewModel.statusText)
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding()
-                    }
-                    
                 }
                 
             }
+            
             
         }
         .onChange(of: viewModel.scannedCode) { newScannedCode in
@@ -97,11 +81,17 @@ struct BarcodeScannerView: View {
                 do {
                     try await API.loadFood(barcode: newScannedCode)
                     isFoodLoaded = true
+                    isScannerActive = false
                 } catch {
                     print("Error loading food: \(error)")
                 }
             }
-            
+        }
+        .onAppear {
+            // Start the scanner when the view appears
+            isScannerActive = true
+            isActiveProductView = false //osäker på denna, kolla igen
+            isFoodLoaded = false
         }
         .navigationBarHidden(true)
     }

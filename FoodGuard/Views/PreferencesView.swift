@@ -19,7 +19,7 @@ struct PreferencesView: View {
             .frame(height: 200)
             .padding()
                 
-        Text("I don't want to eat:")
+        Text("I don't want to consume:")
             .font(.title)
             .fontWeight(.bold)
             .padding(.bottom, 10)
