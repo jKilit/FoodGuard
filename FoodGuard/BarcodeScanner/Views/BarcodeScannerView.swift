@@ -32,14 +32,26 @@ struct BarcodeScannerView: View {
             // Text/Barcode Display
             VStack {
                 Spacer()
+                if (productName != "") && !isFoodLoaded {
+                    Text("You can scan another barcode now!")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding()
+                }
                 
                 
                 if isFoodLoaded {
                     Text("Barcode successfully scanned!")
-                        .font(.subheadline)
+                        .font(.title)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding()
+                    
+                    Text("Press the button to continue:")
+                        .font(.subheadline)
+                        .foregroundColor(.white)
+                        .padding(.bottom, 8)
                     
                     // Instead of displaying product details here, show a button to navigate to ProductView
                     NavigationLink(
