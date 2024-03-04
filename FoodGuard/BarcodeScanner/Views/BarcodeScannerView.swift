@@ -1,9 +1,9 @@
-
 import SwiftUI
 
 struct BarcodeScannerView: View {
     @State private var API = FoodAPI()
     @State private var isFoodLoaded = false
+    @State private var historyModel = HistoryModel()
     @State var viewModel = BarcodeScannerViewModel()
     @State private var productName: String = ""
     @State private var isScannerActive = true
@@ -62,6 +62,7 @@ struct BarcodeScannerView: View {
                         
                         // set the productName when the API successfully loads the data
                         productName = API.foodModel?.name ?? "N/A"
+                        historyModel.addScannedProduct(productName: API.foodModel?.name ?? "N/A")
                     } catch {
                         print("Error loading food: \(error)")
                     }
