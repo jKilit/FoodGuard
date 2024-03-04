@@ -13,9 +13,9 @@ class ProductModel {
         let isPalmOilFree = isPalmOilFree(ingredientTags: ingredientTags)
         let isEAdditiveFree = isEAdditiveFree(otherIngredients: otherIngredients)
         
-        let palmoilInPreference = preferencesModel.selectedIngredients.contains("palm oil")
-        let veganInPreference = preferencesModel.selectedIngredients.contains("animal products")
-        let eAdditivesInPreference = preferencesModel.selectedIngredients.contains("E-additives")
+        let palmoilInPreference = preferencesModel.selectedIngredients.contains(.palmOil)
+        let veganInPreference = preferencesModel.selectedIngredients.contains(.animalProducts)
+        let eAdditivesInPreference = preferencesModel.selectedIngredients.contains(.eAdditives)
         
         var alertTriggeringIngredients: Set<String> = []
         
@@ -31,7 +31,10 @@ class ProductModel {
             alertTriggeringIngredients.insert("Contains E-additives")
         }
         
-        let intersection = Set(preferencesModel.selectedIngredients).intersection(cleanedOtherIngredients)
+        let preferenceSet: Set<String> = Set(preferencesModel.selectedIngredients.map { $0.rawValue })
+        let cleanedOtherIngredientsSet: Set<String> = Set(cleanedOtherIngredients)
+        
+        let intersection = preferenceSet.intersection(cleanedOtherIngredientsSet)
         
         // Include all triggering ingredients, both from preferences and due to non-vegan or palm oil content
         alertTriggeringIngredients.formUnion(intersection)
@@ -45,7 +48,6 @@ class ProductModel {
         return true
     }
     
-    
     func isProductVegan(ingredientTags: [String]) -> Bool {
         return !ingredientTags.contains("en:non-vegan")
     }
@@ -53,6 +55,7 @@ class ProductModel {
     func isPalmOilFree(ingredientTags: [String]) -> Bool {
         return !ingredientTags.contains("en:palm-oil")
     }
+    
     func isEAdditiveFree(otherIngredients: [String]) -> Bool {
         let hasEAdditive = otherIngredients.contains { tag in
             let lowercasedTag = tag.lowercased()
@@ -61,5 +64,3 @@ class ProductModel {
         return !hasEAdditive
     }
 }
-
-

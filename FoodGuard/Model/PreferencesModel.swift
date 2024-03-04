@@ -8,34 +8,45 @@
 import Foundation
 import Observation
 
+// enum for ingredients
+enum Ingredient: String, CaseIterable, Hashable {
+    case lactose
+    case sugar
+    case eggs
+    case nuts
+    case gluten
+    case soy
+    case fish
+    case animalProducts = "animal products"
+    case palmOil = "palm oil"
+    case eAdditives = "E-additives"
+}
+
 @Observable
 class PreferencesModel {
-    var selectedIngredients: Set<String> = []
+    var selectedIngredients: Set<Ingredient> = []
 
-    
     init() {
         loadPreferences()
     }
 
-    func toggleIngredient(_ ingredient: String) {
+    func toggleIngredient(_ ingredient: Ingredient) {
         if selectedIngredients.contains(ingredient) {
             selectedIngredients.remove(ingredient)
         } else {
             selectedIngredients.insert(ingredient)
         }
-        print(selectedIngredients)
         savePreferences()
     }
-    
-    //maybe fix enum for the values
+
     private func savePreferences() {
         UserDefaults.standard.set(Array(selectedIngredients), forKey: "selectedIngredients")
     }
 
     private func loadPreferences() {
         if let savedIngredients = UserDefaults.standard.array(forKey: "selectedIngredients") as? [String] {
-            selectedIngredients = Set(savedIngredients)
+            selectedIngredients = Set(savedIngredients.compactMap(Ingredient.init(rawValue:)))
         }
     }
-    
 }
+
