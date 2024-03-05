@@ -4,44 +4,48 @@ import Observation
 @Observable
 class ProductModel {
     let preferencesModel = PreferencesModel()
-    var matchedProducts: [(productName: String, alertTriggeringIngredients: Set<String>)] = []
-    
+    var matchedProducts: [(productName: String, alertTriggeringIngredients: Set<Ingredient>)] = []
+
     func compareIngredients(_ otherIngredients: [String], ingredientTags: [String], productName: String) -> Bool {
         let cleanedOtherIngredients = otherIngredients.map { $0.replacingOccurrences(of: "en:", with: "") }
-        
+
         let isVegan = isProductVegan(ingredientTags: ingredientTags)
         let isPalmOilFree = isPalmOilFree(ingredientTags: ingredientTags)
         let isEAdditiveFree = isEAdditiveFree(otherIngredients: otherIngredients)
-        
-        let palmoilInPreference = preferencesModel.selectedIngredients.contains("palm oil")
-        let veganInPreference = preferencesModel.selectedIngredients.contains("animal products")
-        let eAdditivesInPreference = preferencesModel.selectedIngredients.contains("E-additives")
-        
-        var alertTriggeringIngredients: Set<String> = []
-        
+
+        let palmoilInPreference = preferencesModel.selectedIngredients.contains(.palmOil)
+        let veganInPreference = preferencesModel.selectedIngredients.contains(.animalProducts)
+        let eAdditivesInPreference = preferencesModel.selectedIngredients.contains(.eAdditives)
+
+        var alertTriggeringIngredients: Set<Ingredient> = []
+
         if veganInPreference && !isVegan {
-            alertTriggeringIngredients.insert("Non-Vegan")
+            alertTriggeringIngredients.insert(.animalProducts)
         }
-        
+
         if palmoilInPreference && !isPalmOilFree {
-            alertTriggeringIngredients.insert("Contains Palm Oil")
+            alertTriggeringIngredients.insert(.palmOil)
         }
-        
+
         if eAdditivesInPreference && !isEAdditiveFree {
-            alertTriggeringIngredients.insert("Contains E-additives")
+            alertTriggeringIngredients.insert(.eAdditives)
         }
-        
-        let intersection = Set(preferencesModel.selectedIngredients).intersection(cleanedOtherIngredients)
-        
+
+        let preferenceIngredientsSet: Set<Ingredient> = Set(preferencesModel.selectedIngredients)
+        let cleanedOtherIngredientsSet: Set<Ingredient> = Set(cleanedOtherIngredients.map(Ingredient.init(rawValue:)).compactMap { $0 })
+
+        let intersection: Set<Ingredient> = preferenceIngredientsSet.intersection(cleanedOtherIngredientsSet)
+
+
         // Include all triggering ingredients, both from preferences and due to non-vegan or palm oil content
         alertTriggeringIngredients.formUnion(intersection)
-        
+
         if !alertTriggeringIngredients.isEmpty {
             // If there are alert-triggering ingredients, add the product name and ingredients to the matchedProducts array
             matchedProducts.append((productName: productName, alertTriggeringIngredients: alertTriggeringIngredients))
             return false
         }
-        
+
         return true
     }
     

@@ -54,7 +54,7 @@ struct DraggableProductView: View {
                                 ForEach(productModel.matchedProducts, id: \.productName) { matchedProduct in
                                     VStack(alignment: .leading) {
                                         ForEach(matchedProduct.alertTriggeringIngredients.sorted(), id: \.self) { alertTriggeringIngredient in
-                                            Text(alertTriggeringIngredient)
+                                            Text(alertTriggeringIngredient.rawValue)
                                                 .padding(.vertical, 4)
                                         }
                                     }
