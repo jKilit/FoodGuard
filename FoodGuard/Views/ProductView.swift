@@ -1,5 +1,3 @@
-// DraggableProductView.swift
-
 import SwiftUI
 
 struct DraggableProductView: View {
@@ -21,81 +19,70 @@ struct DraggableProductView: View {
                     Text("Product not found. Go back and try again")
                         .foregroundColor(.white)
                         .padding()
+                        .background(Color.red)
+                        .cornerRadius(12)
                 } else {
-                    Text(productName)
-                        .font(.title)
-                        .foregroundColor(isProductSafe ? .green : .red)
-                        .fontWeight(.bold)
-                        .padding()
-                    
-                    if isProductSafe {
-                        Text("This product is safe!")
-                            .foregroundColor(.green)
+                    VStack {
+                        Text(productName)
+                            .font(.title)
+                            .foregroundColor(isProductSafe ? .green : .red)
+                            .fontWeight(.bold)
                             .padding()
-                        
-                        Image(systemName: "checkmark.circle.fill")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(.green)
-                    } else {
-                        Text("This product does not match")
-                            .foregroundColor(.red)
-                        Text("your preferences!")
-                            .foregroundColor(.red)
-                            .padding()
-                        
-                        Image(systemName: "xmark.circle.fill")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(.red)
-                        
-                        List {
-                            Section(header: Text("Alert-triggering ingredients:").font(.title3).foregroundColor(.orange)) {
-                                ForEach(productModel.matchedProducts, id: \.productName) { matchedProduct in
-                                    VStack(alignment: .leading) {
-                                        ForEach(matchedProduct.alertTriggeringIngredients.sorted(), id: \.self) { alertTriggeringIngredient in
-                                            Text(alertTriggeringIngredient)
-                                                .padding(.vertical, 4)
+                            .background(Color.white)
+                            .cornerRadius(12)
+
+                        if isProductSafe {
+                            Text("This product is safe!")
+                                .foregroundColor(.green)
+                                .padding()
+
+                            Image(systemName: "checkmark.circle.fill")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(.green)
+                        } else {
+                            Text("This product does not match")
+                                .foregroundColor(.red)
+                            Text("your preferences!")
+                                .foregroundColor(.red)
+                                .padding()
+
+                            Image(systemName: "xmark.circle.fill")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(.red)
+
+                            List {
+                                Section(header: Text("Alert-triggering ingredients:").font(.title3).foregroundColor(.orange)) {
+                                    ForEach(productModel.matchedProducts, id: \.productName) { matchedProduct in
+                                        VStack(alignment: .leading) {
+                                            ForEach(matchedProduct.alertTriggeringIngredients.sorted(), id: \.self) { alertTriggeringIngredient in
+                                                Text(alertTriggeringIngredient)
+                                                    .padding(.vertical, 4)
+                                            }
                                         }
+                                        .padding(.vertical, 8)
                                     }
-                                    .padding(.vertical, 8)
                                 }
                             }
+                            .listStyle(GroupedListStyle())
+                            .frame(height: UIScreen.main.bounds.height / 2)
+                            .shadow(radius: 5)
+                            .background(Color.white)
                         }
-                        .listStyle(GroupedListStyle())
-                        .frame(height: UIScreen.main.bounds.height / 2)
-                        .cornerRadius(16)
-                        .shadow(radius: 5)
                     }
+                    .padding()
+                    .frame(width: UIScreen.main.bounds.width - 32)
+                    .cornerRadius(16)
+                    .shadow(radius: 5)
+                    .background(Color.white)
                 }
             }
-            .cornerRadius(16)
-            .shadow(radius: 5)
-            .padding()
-            .frame(height: geometry.size.height * 0.8)
-            .offset(y: isSheetPresented ? geometry.size.height * 0.2 : geometry.size.height)
-            .gesture(DragGesture()
-                        .onChanged { value in
-                            if value.translation.height < 0 {
-                                isSheetPresented = true
-                                isScannerActive = false
-                            } else {
-                                isSheetPresented = false
-                                isScannerActive = true
-                            }
-                        }
-                        .onEnded { value in
-                            if value.translation.height < 0 {
-                                isSheetPresented = true
-                                isScannerActive = false
-                            } else {
-                                isSheetPresented = false
-                                isScannerActive = true
-                            }
-                        })
-
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.white)
+            .edgesIgnoringSafeArea(.all)
+            .navigationBarHidden(true)
+            .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
         }
-        .background(Color.black.opacity(0.4).edgesIgnoringSafeArea(.all))
-        .navigationBarHidden(true)
     }
 }
