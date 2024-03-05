@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26AC588D2B96597600FE8DC7 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC588C2B96597600FE8DC7 /* HistoryModel.swift */; };
+		26AC588F2B9659AB00FE8DC7 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC588E2B9659AB00FE8DC7 /* HistoryView.swift */; };
 		26ADD5672B7BEA46009E069E /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ADD5662B7BEA46009E069E /* FoodModel.swift */; };
 		26ADD5692B7BF7FF009E069E /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ADD5682B7BF7FF009E069E /* ProductView.swift */; };
 		26ADD56B2B7BFCC5009E069E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ADD56A2B7BFCC5009E069E /* HomeView.swift */; };
@@ -49,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26AC588C2B96597600FE8DC7 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryModel.swift; path = ../../HistoryModel.swift; sourceTree = "<group>"; };
+		26AC588E2B9659AB00FE8DC7 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryView.swift; path = ../../HistoryView.swift; sourceTree = "<group>"; };
 		26ADD5662B7BEA46009E069E /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		26ADD5682B7BF7FF009E069E /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		26ADD56A2B7BFCC5009E069E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 		26ADD5652B7BEA2E009E069E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				26AC588C2B96597600FE8DC7 /* HistoryModel.swift */,
 				E4CDA92D2B83A9DB00BDA4DC /* ProductModel.swift */,
 				26ADD5662B7BEA46009E069E /* FoodModel.swift */,
 				26ADD56C2B7C1EDC009E069E /* PreferencesModel.swift */,
@@ -223,6 +228,7 @@
 		E43292A32B77AA7F0046D8E4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				26AC588E2B9659AB00FE8DC7 /* HistoryView.swift */,
 				26ADD56E2B7C2011009E069E /* PreferencesView.swift */,
 				E43292692B778B470046D8E4 /* ContentView.swift */,
 				26ADD5682B7BF7FF009E069E /* ProductView.swift */,
@@ -364,6 +370,7 @@
 			files = (
 				B9DFAA932B7BEC2800052E2D /* APIManager.swift in Sources */,
 				26ADD56B2B7BFCC5009E069E /* HomeView.swift in Sources */,
+				26AC588D2B96597600FE8DC7 /* HistoryModel.swift in Sources */,
 				E432926A2B778B470046D8E4 /* ContentView.swift in Sources */,
 				E4CDA9302B83AA4100BDA4DC /* SettingsView.swift in Sources */,
 				E4CDA92E2B83A9DB00BDA4DC /* ProductModel.swift in Sources */,
@@ -373,6 +380,7 @@
 				26ADD5692B7BF7FF009E069E /* ProductView.swift in Sources */,
 				B9DFAA912B7BE7A100052E2D /* FoodData.swift in Sources */,
 				E432929F2B77927D0046D8E4 /* BarcodeScannerView.swift in Sources */,
+				26AC588F2B9659AB00FE8DC7 /* HistoryView.swift in Sources */,
 				E432929D2B7792220046D8E4 /* ScannerVC.swift in Sources */,
 				E43292682B778B470046D8E4 /* FoodGuardApp.swift in Sources */,
 				E43292A22B7793140046D8E4 /* BarcodeScannerViewModel.swift in Sources */,
@@ -538,7 +546,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FoodGuard/Preview Content\"";
-				DEVELOPMENT_TEAM = HDV244YX62;
+				DEVELOPMENT_TEAM = 73XVA8XTP6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need you camera bro";
@@ -557,7 +565,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = JonathanKilit.FoodGuard;
+				PRODUCT_BUNDLE_IDENTIFIER = Edvinmuj.FoodGuard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -576,7 +584,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FoodGuard/Preview Content\"";
-				DEVELOPMENT_TEAM = HDV244YX62;
+				DEVELOPMENT_TEAM = 73XVA8XTP6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need you camera bro";
@@ -595,7 +603,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = JonathanKilit.FoodGuard;
+				PRODUCT_BUNDLE_IDENTIFIER = Edvinmuj.FoodGuard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
