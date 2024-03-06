@@ -55,9 +55,10 @@ struct DraggableProductView: View {
                             List {
                                 Section(header: Text("Alert-triggering ingredients:").font(.title3).foregroundColor(.orange)) {
                                     ForEach(productModel.matchedProducts, id: \.productName) { matchedProduct in
+                                        //MatchedProductsListView(alertTriggeringIngredients: matchedProduct.alertTriggeringIngredients)
                                         VStack(alignment: .leading) {
                                             ForEach(matchedProduct.alertTriggeringIngredients.sorted(), id: \.self) { alertTriggeringIngredient in
-                                                Text(alertTriggeringIngredient)
+                                                Text(alertTriggeringIngredient.rawValue)
                                                     .padding(.vertical, 4)
                                             }
                                         }
@@ -84,5 +85,19 @@ struct DraggableProductView: View {
             .navigationBarHidden(true)
             .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
         }
+    }
+}
+
+struct MatchedProductsListView: View {
+    let alertTriggeringIngredients: Set<Ingredient>
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            ForEach(alertTriggeringIngredients.sorted(), id: \.self) { alertTriggeringIngredient in
+                Text(alertTriggeringIngredient.rawValue)
+                    .padding(.vertical, 4)
+            }
+        }
+        .padding(.vertical, 8)
     }
 }

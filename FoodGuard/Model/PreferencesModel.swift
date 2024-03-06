@@ -56,7 +56,7 @@ class PreferencesModel {
 
     private func loadPreferences() {
         if let savedIngredients = UserDefaults.standard.array(forKey: "selectedIngredients") as? [String] {
-            selectedIngredients = Set(savedIngredients.compactMap(Ingredient.init(rawValue:)))
+            selectedIngredients = Set(savedIngredients.compactMap{ Ingredient(rawValue: $0) })
         }
     }
 }

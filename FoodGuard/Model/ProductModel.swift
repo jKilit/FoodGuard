@@ -32,7 +32,7 @@ class ProductModel {
         }
 
         let preferenceIngredientsSet: Set<Ingredient> = Set(preferencesModel.selectedIngredients)
-        let cleanedOtherIngredientsSet: Set<Ingredient> = Set(cleanedOtherIngredients.map(Ingredient.init(rawValue:)).compactMap { $0 })
+        let cleanedOtherIngredientsSet: Set<Ingredient> = Set(cleanedOtherIngredients.compactMap { Ingredient(rawValue: $0) })
 
         let intersection: Set<Ingredient> = preferenceIngredientsSet.intersection(cleanedOtherIngredientsSet)
 
