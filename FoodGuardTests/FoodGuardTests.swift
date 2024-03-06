@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import FoodGuard
 
 final class FoodGuardTests: XCTestCase {
 
@@ -33,3 +34,107 @@ final class FoodGuardTests: XCTestCase {
     }
 
 }
+
+//----------------- Some tests: ---------------
+
+class ProductModelTests: XCTestCase {
+
+    var productModel: ProductModel!
+
+    override func setUp() {
+        super.setUp()
+        productModel = ProductModel()
+    }
+
+    override func tearDown() {
+        productModel = nil
+        super.tearDown()
+    }
+
+    func testIsProductVegan() {
+        XCTAssertTrue(productModel.isProductVegan(ingredientTags: ["en:vegan"]))
+        XCTAssertFalse(productModel.isProductVegan(ingredientTags: ["en:non-vegan"]))
+    }
+
+    func testIsPalmOilFree() {
+        XCTAssertTrue(productModel.isPalmOilFree(ingredientTags: ["en:ingredient1"]))
+        XCTAssertFalse(productModel.isPalmOilFree(ingredientTags: ["en:palm-oil"]))
+    }
+
+    func testIsEAdditiveFree() {
+        XCTAssertTrue(productModel.isEAdditiveFree(otherIngredients: ["en:ingredient1"]))
+        XCTAssertFalse(productModel.isEAdditiveFree(otherIngredients: ["en:e123"]))
+    }
+
+    func testCompareIngredients() {
+        let result = productModel.compareIngredients(["en:ingredient1"], ingredientTags: ["en:vegan"], productName: "TestProduct")
+        XCTAssertTrue(result)
+        XCTAssertEqual(productModel.matchedProducts.count, 0)
+    }
+
+}
+
+class PreferencesModelTests: XCTestCase {
+
+    var preferencesModel: PreferencesModel!
+
+    override func setUp() {
+        super.setUp()
+        preferencesModel = PreferencesModel()
+    }
+
+    override func tearDown() {
+        preferencesModel = nil
+        super.tearDown()
+    }
+    
+    //make sure to have all preferences off before testing this
+    func testToggleIngredient() {
+        XCTAssertEqual(preferencesModel.selectedIngredients.count, 0)
+        preferencesModel.toggleIngredient(.palmOil)
+        XCTAssertEqual(preferencesModel.selectedIngredients.count, 1)
+        preferencesModel.toggleIngredient(.palmOil)
+        XCTAssertEqual(preferencesModel.selectedIngredients.count, 0)
+    }
+
+}
+
+
+class FoodModelTests: XCTestCase {
+    func testFoodModelInitialization() {
+        // Given
+        let product = FoodData.Product(ingredientsHierarchy: ["Ingredient1", "Ingredient2"], ingredientsAnalysisTags: ["Tag1", "Tag2"], productName: "Test Product")
+        let baseUrl = "https://example.com/"
+        
+        // When
+        let foodModel = FoodModel(product: product, baseUrl: baseUrl)
+        
+        // Then
+        XCTAssertEqual(foodModel.name, "Test Product")
+        XCTAssertEqual(foodModel.ingredients, ["Ingredient1", "Ingredient2"])
+        XCTAssertEqual(foodModel.ingredientsTags, ["Tag1", "Tag2"])
+    }
+}
+
+class FoodAPITests: XCTestCase {
+    func testLoadFoodSuccess() async {
+        // Given
+        let api = FoodAPI()
+        let barcode = "3017620422003" // nutella barcode for testing
+        
+        // When
+        do {
+            try await api.loadFood(barcode: barcode)
+            
+            // Then
+            XCTAssertNotNil(api.foodModel)
+            // Add more assertions
+        } catch {
+            XCTFail("Failed with error: \(error)")
+        }
+    }
+    
+    // can add more test scenarios (e.g., network error, invalid barcode, etc.)
+}
+
+//------------------------------------------
