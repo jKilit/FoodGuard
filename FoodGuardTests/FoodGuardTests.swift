@@ -71,6 +71,21 @@ class ProductModelTests: XCTestCase {
         XCTAssertTrue(result)
         XCTAssertEqual(productModel.matchedProducts.count, 0)
     }
+    
+    func testInitialMatchedProductsListIsEmpty() {
+        let productModel = ProductModel()
+        XCTAssertTrue(productModel.matchedProducts.isEmpty)
+    }
+    
+    func testAddProductToMatchedProducts() {
+        let productModel = ProductModel()
+        let productName = "TestProduct"
+        let alertTriggeringIngredients: Set<Ingredient> = [.animalProducts, .palmOil]
+        productModel.matchedProducts.append((productName: productName, alertTriggeringIngredients: alertTriggeringIngredients))
+        XCTAssertEqual(productModel.matchedProducts.count, 1)
+        XCTAssertEqual(productModel.matchedProducts.first?.productName, productName)
+        XCTAssertEqual(productModel.matchedProducts.first?.alertTriggeringIngredients, alertTriggeringIngredients)
+    }
 
 }
 
@@ -114,6 +129,7 @@ class FoodModelTests: XCTestCase {
         XCTAssertEqual(foodModel.ingredients, ["Ingredient1", "Ingredient2"])
         XCTAssertEqual(foodModel.ingredientsTags, ["Tag1", "Tag2"])
     }
+    
 }
 
 class ScannedProductTests: XCTestCase {
