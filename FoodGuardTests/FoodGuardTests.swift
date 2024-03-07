@@ -8,7 +8,7 @@
 import XCTest
 @testable import FoodGuard
 
-final class FoodGuardTests: XCTestCase {
+final class FoodGuardTests: XCTestCase { //mall
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -115,6 +115,17 @@ class FoodModelTests: XCTestCase {
         XCTAssertEqual(foodModel.ingredientsTags, ["Tag1", "Tag2"])
     }
 }
+
+class ScannedProductTests: XCTestCase {
+
+    // Test case for ScannedProduct initialization
+    func testScannedProductInitialization() {
+        let scannedProduct = ScannedProduct(productName: "TestProduct")
+        XCTAssertEqual(scannedProduct.productName, "TestProduct")
+    }
+
+}
+
 
 class FoodAPITests: XCTestCase {
     func testLoadFoodSuccess() async {
