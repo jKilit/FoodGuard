@@ -8,10 +8,6 @@ struct EAdditivesView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("Information about E-additives")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .padding(.top, 20)
                     
                     Text("E-additives, or food additives, are substances added to food to preserve flavor or enhance its taste and appearance. While many are safe, some additives may raise concerns due to their origins or potential health effects.")
                         .foregroundColor(.black)
@@ -21,14 +17,12 @@ struct EAdditivesView: View {
                     Text("E-additives to Consider Avoiding:")
                         .font(.headline)
                         .fontWeight(.bold)
-                        .foregroundColor(.red)
+                        .foregroundColor(.blue)
                         .padding(.top, 10)
                     
-                    // Search Bar
                     SearchBar(text: $searchText)
                         .padding(.top, 5)
                     
-                    // List of E-additives and their information
                     ForEach(eAdditives.filter {
                         searchText.isEmpty || $0.name.localizedCaseInsensitiveContains(searchText)
                     }) { eAdditive in
@@ -142,12 +136,9 @@ let eAdditives: [EAdditive] = [
     EAdditive(name: "E939", description: "Helium", reason: "Propellant gas; concerns about its safety."),
     EAdditive(name: "E941", description: "Nitrogen", reason: "Propellant gas; concerns about its safety."),
     EAdditive(name: "E160b", description: "Annatto", reason: "May cause allergic reactions."),
-    EAdditive(name: "E120", description: "Cochineal, Carminic Acid", reason: "May cause allergic reactions."),
     EAdditive(name: "E200", description: "Sorbic Acid", reason: "May cause non-allergic sensitivity."),
     EAdditive(name: "E202", description: "Potassium Sorbate", reason: "May cause non-allergic sensitivity."),
     EAdditive(name: "E203", description: "Calcium Sorbate", reason: "May cause non-allergic sensitivity."),
-    EAdditive(name: "E210", description: "Benzoic Acid", reason: "May cause non-allergic sensitivity."),
-    EAdditive(name: "E211", description: "Sodium Benzoate", reason: "May cause non-allergic sensitivity."),
     EAdditive(name: "E212", description: "Potassium Benzoate", reason: "May cause non-allergic sensitivity."),
     EAdditive(name: "E213", description: "Calcium Benzoate", reason: "May cause non-allergic sensitivity."),
     EAdditive(name: "E214", description: "Ethyl 4-hydroxybenzoate", reason: "May cause non-allergic sensitivity."),
