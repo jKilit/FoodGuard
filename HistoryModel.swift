@@ -4,7 +4,7 @@
 //
 //  Created by Jonathan Kilit on 2024-03-04.
 //
-
+/*
 import Foundation
 import Observation
 
@@ -32,7 +32,6 @@ class HistoryModel {
     func addScannedProduct(productName: String) {
         let scannedProduct = ScannedProduct(productName: productName)
         scannedProducts.append(scannedProduct)
-        print("ADD SCANNED !")
     }
     
     func clearHistory() {
@@ -54,3 +53,4 @@ class HistoryModel {
         }
     }
 }
+*/

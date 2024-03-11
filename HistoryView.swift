@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ProductHistoryView: View {
-    @State private var historyModel = HistoryModel()
-
+    @Environment(\.modelContext) var modelContext
+    @Query private var historyProducts: [HistoryData]
+    
     var body: some View {
         NavigationView {
-            List(historyModel.scannedProducts) { scannedProduct in
+            List(historyProducts) { scannedProduct in
                 VStack(alignment: .leading) {
                     Text(scannedProduct.productName)
                         .font(.headline)
@@ -21,14 +23,15 @@ struct ProductHistoryView: View {
             }
             .navigationBarTitle("Product History")
             .navigationBarItems(trailing:
-                Button("Clear History") {
-                    historyModel.clearHistory()
-                }
+                                    Button("Clear History") {
+                // historyModel.clearHistory()
+            }
             )
         }
         .onAppear {
-            // Load initial data when the view appears
-            historyModel.loadScannedProducts()
+            // Load initial data when the view appearsq
+            // historyModel.loadScannedProducts()
         }
     }
 }
+
