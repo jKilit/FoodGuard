@@ -14,7 +14,7 @@ struct ProductHistoryView: View {
     
     var body: some View {
         NavigationView {
-            List(historyProducts) { scannedProduct in
+            List(historyProducts.reversed()) { scannedProduct in
                 VStack(alignment: .leading) {
                     Text(scannedProduct.productName)
                         .font(.headline)
@@ -24,7 +24,7 @@ struct ProductHistoryView: View {
             .navigationBarTitle("Product History")
             .navigationBarItems(trailing:
                                     Button("Clear History") {
-                // historyModel.clearHistory()
+                clearHistory()
             }
             )
         }
@@ -33,5 +33,12 @@ struct ProductHistoryView: View {
             // historyModel.loadScannedProducts()
         }
     }
+    private func clearHistory() {
+        do {
+              try modelContext.delete(model: HistoryData.self)
+            } catch {
+                print("Error clearing history: \(error)")
+            }
+        }
 }
 
