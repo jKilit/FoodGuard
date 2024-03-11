@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2608D3A82B9EED3000B0C596 /* HistoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608D3A72B9EED3000B0C596 /* HistoryData.swift */; };
-		26AC588D2B96597600FE8DC7 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC588C2B96597600FE8DC7 /* HistoryModel.swift */; };
 		26AC588F2B9659AB00FE8DC7 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC588E2B9659AB00FE8DC7 /* HistoryView.swift */; };
 		26ADD5672B7BEA46009E069E /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ADD5662B7BEA46009E069E /* FoodModel.swift */; };
 		26ADD5692B7BF7FF009E069E /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ADD5682B7BF7FF009E069E /* ProductView.swift */; };
@@ -53,7 +52,6 @@
 
 /* Begin PBXFileReference section */
 		2608D3A72B9EED3000B0C596 /* HistoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryData.swift; sourceTree = "<group>"; };
-		26AC588C2B96597600FE8DC7 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryModel.swift; path = ../../HistoryModel.swift; sourceTree = "<group>"; };
 		26AC588E2B9659AB00FE8DC7 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryView.swift; path = ../../HistoryView.swift; sourceTree = "<group>"; };
 		26ADD5662B7BEA46009E069E /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		26ADD5682B7BF7FF009E069E /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 		26ADD5652B7BEA2E009E069E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				26AC588C2B96597600FE8DC7 /* HistoryModel.swift */,
 				E4CDA92D2B83A9DB00BDA4DC /* ProductModel.swift */,
 				26ADD5662B7BEA46009E069E /* FoodModel.swift */,
 				26ADD56C2B7C1EDC009E069E /* PreferencesModel.swift */,
@@ -373,7 +370,6 @@
 			files = (
 				B9DFAA932B7BEC2800052E2D /* APIManager.swift in Sources */,
 				26ADD56B2B7BFCC5009E069E /* HomeView.swift in Sources */,
-				26AC588D2B96597600FE8DC7 /* HistoryModel.swift in Sources */,
 				E432926A2B778B470046D8E4 /* ContentView.swift in Sources */,
 				E4CDA9302B83AA4100BDA4DC /* SettingsView.swift in Sources */,
 				E4CDA92E2B83A9DB00BDA4DC /* ProductModel.swift in Sources */,
