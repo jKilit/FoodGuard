@@ -29,8 +29,7 @@ struct ProductHistoryView: View {
             )
         }
         .onAppear {
-            // Load initial data when the view appearsq
-            // historyModel.loadScannedProducts()
+
         }
     }
     private func clearHistory() {
