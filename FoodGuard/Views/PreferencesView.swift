@@ -7,11 +7,11 @@
 
 
 import SwiftUI
-
 struct PreferencesView: View {
     @State var preferencesModel: PreferencesModel
 
     let ingredients = Ingredient.allCases
+    let emojis = ["🥛", "🍬", "🥚", "🥜", "🌾", "🌱", "🐟", "🥩", "🌴", "🧪"]
 
     var body: some View {
         ScrollView {
@@ -28,12 +28,12 @@ struct PreferencesView: View {
                     .padding(.bottom, 10)
 
                 LazyVStack(alignment: .leading, spacing: 10) {
-                    ForEach(ingredients, id: \.self) { ingredient in
+                    ForEach(ingredients.indices, id: \.self) { index in
                         Toggle(isOn: Binding(
-                            get: { preferencesModel.selectedIngredients.contains(ingredient) },
-                            set: { _ in preferencesModel.toggleIngredient(ingredient) }
+                            get: { preferencesModel.selectedIngredients.contains(ingredients[index]) },
+                            set: { _ in preferencesModel.toggleIngredient(ingredients[index]) }
                         )) {
-                            Text(ingredient.displayName)
+                            Text("\(emojis[index]) \(ingredients[index].displayName)")
                         }
                     }
                 }

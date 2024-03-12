@@ -23,22 +23,19 @@ struct HomeView: View {
                 
                 
                 NavigationLink(destination: FunFactsView()) {
-                    HomeBox(title: "Fun Facts", color: .blue)
+                    HomeBox(title: "Fun Facts", backgroundImageName: "3")
                 }
-                
                 
                 NavigationLink(destination: EAdditivesView()) {
-                    HomeBox(title: "E-additives", color: .blue)
+                    HomeBox(title: "E-additives", backgroundImageName: "4")
                 }
-                
                 
                 NavigationLink(destination: AllergiesView()) {
-                    HomeBox(title: "Allergies", color: .blue)
+                    HomeBox(title: "Allergies", backgroundImageName: "2")
                 }
                 
-                
                 NavigationLink(destination: IngredientsToAvoidView()) {
-                    HomeBox(title: "Ingredients to avoid", color: .blue)
+                    HomeBox(title: "Ingredients to avoid", backgroundImageName: "5")
                 }
                 
                 Spacer()
@@ -54,27 +51,36 @@ struct HomeView: View {
                 .padding()
         }
     }
-      
+    
 }
 
 struct HomeBox: View {
     let title: String
-    let color: Color
+    let backgroundImageName: String // Add a property for the background image name
     
     var body: some View {
-        VStack {
-            Text(title)
-                .font(.headline)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-                .padding()
+        ZStack {
+            Image(backgroundImageName) // Use the background image as the background
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(maxWidth: .infinity, maxHeight: 80)
+                .cornerRadius(16)
+                .shadow(radius: 5)
             
+            Color.black.opacity(0.6) // Semi-transparent black color overlay
+                .frame(maxWidth: .infinity, maxHeight: 100)
+                .cornerRadius(16)
+            
+            VStack {
+                Text(title)
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding()
+            }
+            .frame(maxWidth: .infinity, maxHeight: 100)
+            .background(Color.clear) // Use clear color for the background
+            .cornerRadius(16)
         }
-        .frame(maxWidth: .infinity, maxHeight: 100)
-        .background(color)
-        .cornerRadius(16)
-        .shadow(radius: 5)
     }
 }
-
-
