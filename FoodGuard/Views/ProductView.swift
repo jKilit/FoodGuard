@@ -81,11 +81,23 @@ struct MatchedProductsListView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            ForEach(alertTriggeringIngredients.sorted(), id: \.self) { alertTriggeringIngredient in
-                let displayName = self.displayNameForIngredient(alertTriggeringIngredient)
-                Text(displayName)
-                    .padding(.vertical, 4)
-            }
+            Text("Alert Triggering Ingredients:")
+                .font(.headline)
+                .foregroundColor(.red)
+                .padding(.bottom, 4)
+            
+                VStack(alignment: .leading, spacing: 8) {
+                    ForEach(alertTriggeringIngredients.sorted(), id: \.self) { alertTriggeringIngredient in
+                        let displayName = self.displayNameForIngredient(alertTriggeringIngredient)
+                        Text(displayName)
+                            .padding(.vertical, 6)
+                            .padding(.horizontal, 12)
+                            .background(Color.white)
+                    }
+                }
+            .frame(maxHeight: 50) // Set maximum height for the VStack inside ScrollView
+
+
         }
     }
     
@@ -96,7 +108,7 @@ struct MatchedProductsListView: View {
         case .palmOil:
             return "Palm Oil"
         case .animalProducts:
-            return "Animal products"
+            return "Animal Products"
         default:
             return ingredient.rawValue
         }

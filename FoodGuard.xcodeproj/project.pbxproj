@@ -14,6 +14,10 @@
 		26ADD56B2B7BFCC5009E069E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ADD56A2B7BFCC5009E069E /* HomeView.swift */; };
 		26ADD56D2B7C1EDC009E069E /* PreferencesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ADD56C2B7C1EDC009E069E /* PreferencesModel.swift */; };
 		26ADD56F2B7C2011009E069E /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ADD56E2B7C2011009E069E /* PreferencesView.swift */; };
+		B9D4474F2BA1FEFC00A6075E /* ProductModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D4474E2BA1FEFC00A6075E /* ProductModelTests.swift */; };
+		B9D447512BA1FF3C00A6075E /* PreferencesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D447502BA1FF3C00A6075E /* PreferencesModelTests.swift */; };
+		B9D447532BA1FF8500A6075E /* FoodModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D447522BA1FF8500A6075E /* FoodModelTests.swift */; };
+		B9D447572BA1FFF700A6075E /* FoodAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D447562BA1FFF700A6075E /* FoodAPITests.swift */; };
 		B9DFAA912B7BE7A100052E2D /* FoodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DFAA902B7BE7A100052E2D /* FoodData.swift */; };
 		B9DFAA932B7BEC2800052E2D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DFAA922B7BEC2800052E2D /* APIManager.swift */; };
 		E40958302B8F84D800918484 /* EadditivesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E409582F2B8F84D800918484 /* EadditivesView.swift */; };
@@ -25,7 +29,6 @@
 		E432926C2B778B470046D8E4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432926B2B778B470046D8E4 /* Item.swift */; };
 		E432926E2B778B480046D8E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E432926D2B778B480046D8E4 /* Assets.xcassets */; };
 		E43292722B778B480046D8E4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E43292712B778B480046D8E4 /* Preview Assets.xcassets */; };
-		E432927C2B778B480046D8E4 /* FoodGuardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432927B2B778B480046D8E4 /* FoodGuardTests.swift */; };
 		E43292862B778B480046D8E4 /* FoodGuardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292852B778B480046D8E4 /* FoodGuardUITests.swift */; };
 		E43292882B778B480046D8E4 /* FoodGuardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292872B778B480046D8E4 /* FoodGuardUITestsLaunchTests.swift */; };
 		E43292992B7791230046D8E4 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292982B7791230046D8E4 /* Alert.swift */; };
@@ -62,6 +65,10 @@
 		26ADD56A2B7BFCC5009E069E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		26ADD56C2B7C1EDC009E069E /* PreferencesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesModel.swift; sourceTree = "<group>"; };
 		26ADD56E2B7C2011009E069E /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		B9D4474E2BA1FEFC00A6075E /* ProductModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModelTests.swift; sourceTree = "<group>"; };
+		B9D447502BA1FF3C00A6075E /* PreferencesModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesModelTests.swift; sourceTree = "<group>"; };
+		B9D447522BA1FF8500A6075E /* FoodModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModelTests.swift; sourceTree = "<group>"; };
+		B9D447562BA1FFF700A6075E /* FoodAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAPITests.swift; sourceTree = "<group>"; };
 		B9DFAA902B7BE7A100052E2D /* FoodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodData.swift; sourceTree = "<group>"; };
 		B9DFAA922B7BEC2800052E2D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		B9DFAA942B7C312D00052E2D /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
@@ -77,7 +84,6 @@
 		E432926F2B778B480046D8E4 /* FoodGuard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FoodGuard.entitlements; sourceTree = "<group>"; };
 		E43292712B778B480046D8E4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E43292772B778B480046D8E4 /* FoodGuardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodGuardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E432927B2B778B480046D8E4 /* FoodGuardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGuardTests.swift; sourceTree = "<group>"; };
 		E43292812B778B480046D8E4 /* FoodGuardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodGuardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43292852B778B480046D8E4 /* FoodGuardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGuardUITests.swift; sourceTree = "<group>"; };
 		E43292872B778B480046D8E4 /* FoodGuardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGuardUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -183,7 +189,10 @@
 		E432927A2B778B480046D8E4 /* FoodGuardTests */ = {
 			isa = PBXGroup;
 			children = (
-				E432927B2B778B480046D8E4 /* FoodGuardTests.swift */,
+				B9D4474E2BA1FEFC00A6075E /* ProductModelTests.swift */,
+				B9D447502BA1FF3C00A6075E /* PreferencesModelTests.swift */,
+				B9D447522BA1FF8500A6075E /* FoodModelTests.swift */,
+				B9D447562BA1FFF700A6075E /* FoodAPITests.swift */,
 			);
 			path = FoodGuardTests;
 			sourceTree = "<group>";
@@ -410,7 +419,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E432927C2B778B480046D8E4 /* FoodGuardTests.swift in Sources */,
+				B9D447512BA1FF3C00A6075E /* PreferencesModelTests.swift in Sources */,
+				B9D4474F2BA1FEFC00A6075E /* ProductModelTests.swift in Sources */,
+				B9D447572BA1FFF700A6075E /* FoodAPITests.swift in Sources */,
+				B9D447532BA1FF8500A6075E /* FoodModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +574,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FoodGuard/Preview Content\"";
-				DEVELOPMENT_TEAM = 73XVA8XTP6;
+				DEVELOPMENT_TEAM = HDV244YX62;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need your camera to proceed.";
@@ -581,7 +593,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Edvinmuj.FoodGuard;
+				PRODUCT_BUNDLE_IDENTIFIER = JonathanKilit.FoodGuard1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -600,7 +612,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FoodGuard/Preview Content\"";
-				DEVELOPMENT_TEAM = 73XVA8XTP6;
+				DEVELOPMENT_TEAM = HDV244YX62;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need your camera to proceed.";
@@ -619,7 +631,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Edvinmuj.FoodGuard;
+				PRODUCT_BUNDLE_IDENTIFIER = JonathanKilit.FoodGuard1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
