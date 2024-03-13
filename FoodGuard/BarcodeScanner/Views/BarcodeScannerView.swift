@@ -22,7 +22,23 @@ struct BarcodeScannerView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
                 VStack {
+                    Text("Scanner")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .padding(.top, 20)
+                    
                     Spacer()
+                    
+                    Image(systemName: "viewfinder")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 280, height: 280)
+                        .foregroundColor(.white)
+                        .padding()
+                    
+                    Spacer()
+                    
+                    
                     if (productName != "") && !isFoodLoaded {
                         Text("You can scan another barcode now!")
                             .font(.title)
@@ -68,13 +84,13 @@ struct BarcodeScannerView: View {
                         let history = HistoryData(productName: productName)
                         modelContext.insert(history)
                         
-
+                        
                     } catch {
                         print("Error loading food: \(error)")
                     }
                 }
             }
-
+            
             .onChange(of: isSheetPresented) { newIsSheetPresented in
                 if !newIsSheetPresented {
                     isScannerActive = true
@@ -93,3 +109,4 @@ struct BarcodeScannerView: View {
         }
     }
 }
+
