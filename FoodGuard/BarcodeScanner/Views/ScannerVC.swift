@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import AVFoundation
-//Behöver inte förstå detta helt, är lite komplicerat, logik för scanner
+/*https://www.youtube.com/watch?v=b1oC7sLIgpI&t=16931s barcode scanner tutorial video that was used to implement the barcode scanning- 2024-02-11*/
 
 enum CameraError {
     case invalidDeviceInput
