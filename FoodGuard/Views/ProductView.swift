@@ -3,16 +3,16 @@ import SwiftUI
 struct DraggableProductView: View {
     @State private var preferencesModel = PreferencesModel()
     @State private var productModel = ProductModel()
-
+    
     let productName: String
     let ingredients: [String]
     let ingredientsTags: [String]
     @Binding var isSheetPresented: Bool
     @Binding var isScannerActive: Bool
-
+    
     var body: some View {
         let isProductSafe: Bool = productModel.compareIngredients(ingredients, ingredientTags: ingredientsTags, productName: productName)
-
+        
         GeometryReader { geometry in
             VStack {
                 if productName == "N/A" {
@@ -30,46 +30,34 @@ struct DraggableProductView: View {
                             .padding()
                             .background(Color.white)
                             .cornerRadius(12)
-
+                        
                         if isProductSafe {
                             Text("This product is safe!")
                                 .foregroundColor(.green)
                                 .padding()
-
+                            
                             Image(systemName: "checkmark.circle.fill")
                                 .resizable()
                                 .frame(width: 50, height: 50)
                                 .foregroundColor(.green)
                         } else {
-                            Text("This product does not match")
-                                .foregroundColor(.red)
-                            Text("your preferences!")
+                            Text("This product does not match your preferences!")
                                 .foregroundColor(.red)
                                 .padding()
-
+                            
                             Image(systemName: "xmark.circle.fill")
                                 .resizable()
                                 .frame(width: 50, height: 50)
                                 .foregroundColor(.red)
-
-                            List {
-                                Section(header: Text("Alert-triggering ingredients:").font(.title3).foregroundColor(.orange)) {
-                                    ForEach(productModel.matchedProducts, id: \.productName) { matchedProduct in
-                                        //MatchedProductsListView(alertTriggeringIngredients: matchedProduct.alertTriggeringIngredients)
-                                        VStack(alignment: .leading) {
-                                            ForEach(matchedProduct.alertTriggeringIngredients.sorted(), id: \.self) { alertTriggeringIngredient in
-                                                Text(alertTriggeringIngredient.rawValue)
-                                                    .padding(.vertical, 4)
-                                            }
-                                        }
-                                        .padding(.vertical, 8)
-                                    }
-                                }
+                            
+                            ScrollView {
+                                MatchedProductsListView(alertTriggeringIngredients: productModel.matchedProducts.flatMap { $0.alertTriggeringIngredients })
                             }
-                            .listStyle(GroupedListStyle())
                             .frame(height: UIScreen.main.bounds.height / 2)
-                            .shadow(radius: 5)
+                            .padding()
                             .background(Color.white)
+                            .cornerRadius(16)
+                            .shadow(radius: 5)
                         }
                     }
                     .padding()
@@ -89,15 +77,28 @@ struct DraggableProductView: View {
 }
 
 struct MatchedProductsListView: View {
-    let alertTriggeringIngredients: Set<Ingredient>
+    let alertTriggeringIngredients: [Ingredient]
     
     var body: some View {
         VStack(alignment: .leading) {
             ForEach(alertTriggeringIngredients.sorted(), id: \.self) { alertTriggeringIngredient in
-                Text(alertTriggeringIngredient.rawValue)
+                let displayName = self.displayNameForIngredient(alertTriggeringIngredient)
+                Text(displayName)
                     .padding(.vertical, 4)
             }
         }
-        .padding(.vertical, 8)
+    }
+    
+    func displayNameForIngredient(_ ingredient: Ingredient) -> String {
+        switch ingredient {
+        case .eAdditives:
+            return "E-Additives"
+        case .palmOil:
+            return "Palm Oil"
+        case .animalProducts:
+            return "Animal products"
+        default:
+            return ingredient.rawValue
+        }
     }
 }
