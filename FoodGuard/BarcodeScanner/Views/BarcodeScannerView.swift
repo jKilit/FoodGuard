@@ -3,7 +3,6 @@ import SwiftUI
 struct BarcodeScannerView: View {
     @State private var API = FoodAPI()
     @State private var isFoodLoaded = false
-    //@State private var historyModel = HistoryModel()
     @State var viewModel = BarcodeScannerViewModel()
     @State private var productName: String = ""
     @State private var isScannerActive = true
@@ -39,7 +38,7 @@ struct BarcodeScannerView: View {
                             .multilineTextAlignment(.center)
                             .padding()
                         
-                        Text("Press the button to continue:")
+                        Text("You can scan another barcode now!")
                             .font(.subheadline)
                             .foregroundColor(.white)
                             .padding(.bottom, 8)
