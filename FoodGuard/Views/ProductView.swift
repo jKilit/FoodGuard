@@ -53,7 +53,7 @@ struct DraggableProductView: View {
                             ScrollView {
                                 MatchedProductsListView(alertTriggeringIngredients: productModel.matchedProducts.flatMap { $0.alertTriggeringIngredients })
                             }
-                            .frame(height: UIScreen.main.bounds.height / 2)
+                            .frame(height: UIScreen.main.bounds.height / 4)
                             .padding()
                             .background(Color.white)
                             .cornerRadius(16)
@@ -80,25 +80,20 @@ struct MatchedProductsListView: View {
     let alertTriggeringIngredients: [Ingredient]
     
     var body: some View {
-        VStack(alignment: .leading) {
             Text("Alert Triggering Ingredients:")
                 .font(.headline)
                 .foregroundColor(.red)
                 .padding(.bottom, 4)
             
-                VStack(alignment: .leading, spacing: 8) {
-                    ForEach(alertTriggeringIngredients.sorted(), id: \.self) { alertTriggeringIngredient in
-                        let displayName = self.displayNameForIngredient(alertTriggeringIngredient)
-                        Text(displayName)
-                            .padding(.vertical, 6)
-                            .padding(.horizontal, 12)
-                            .background(Color.white)
-                    }
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(alertTriggeringIngredients.sorted(), id: \.self) { alertTriggeringIngredient in
+                    let displayName = self.displayNameForIngredient(alertTriggeringIngredient)
+                    Text(displayName)
+                        .padding(.vertical, 6)
+                        .padding(.horizontal, 12)
+                        .background(Color.white)
                 }
-            .frame(maxHeight: 50) // Set maximum height for the VStack inside ScrollView
-
-
-        }
+            }
     }
     
     func displayNameForIngredient(_ ingredient: Ingredient) -> String {
