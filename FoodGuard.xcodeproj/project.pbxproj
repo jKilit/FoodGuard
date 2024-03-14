@@ -37,7 +37,6 @@
 		E432929F2B77927D0046D8E4 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432929E2B77927D0046D8E4 /* BarcodeScannerView.swift */; };
 		E43292A22B7793140046D8E4 /* BarcodeScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43292A12B7793140046D8E4 /* BarcodeScannerViewModel.swift */; };
 		E4CDA92E2B83A9DB00BDA4DC /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CDA92D2B83A9DB00BDA4DC /* ProductModel.swift */; };
-		E4CDA9302B83AA4100BDA4DC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CDA92F2B83AA4100BDA4DC /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +92,6 @@
 		E432929E2B77927D0046D8E4 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
 		E43292A12B7793140046D8E4 /* BarcodeScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewModel.swift; sourceTree = "<group>"; };
 		E4CDA92D2B83A9DB00BDA4DC /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
-		E4CDA92F2B83AA4100BDA4DC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,7 +252,6 @@
 				E40D3EEB2B9F0C3500199AF2 /* IngredientsToAvoidView.swift */,
 				E40D3EE92B9F0BB400199AF2 /* AllergiesView.swift */,
 				E40D3EED2B9F0C8E00199AF2 /* FunFactsView.swift */,
-				E4CDA92F2B83AA4100BDA4DC /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -395,7 +392,6 @@
 				B9DFAA932B7BEC2800052E2D /* APIManager.swift in Sources */,
 				26ADD56B2B7BFCC5009E069E /* HomeView.swift in Sources */,
 				E432926A2B778B470046D8E4 /* ContentView.swift in Sources */,
-				E4CDA9302B83AA4100BDA4DC /* SettingsView.swift in Sources */,
 				E4CDA92E2B83A9DB00BDA4DC /* ProductModel.swift in Sources */,
 				E432926C2B778B470046D8E4 /* Item.swift in Sources */,
 				26ADD5672B7BEA46009E069E /* FoodModel.swift in Sources */,

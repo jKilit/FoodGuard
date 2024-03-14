@@ -56,18 +56,18 @@ struct HomeView: View {
 
 struct HomeBox: View {
     let title: String
-    let backgroundImageName: String // Add a property for the background image name
+    let backgroundImageName: String 
     
     var body: some View {
         ZStack {
-            Image(backgroundImageName) // Use the background image as the background
+            Image(backgroundImageName)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(maxWidth: .infinity, maxHeight: 80)
                 .cornerRadius(16)
                 .shadow(radius: 5)
             
-            Color.black.opacity(0.6) // Semi-transparent black color overlay
+            Color.black.opacity(0.6)
                 .frame(maxWidth: .infinity, maxHeight: 100)
                 .cornerRadius(16)
             
@@ -79,7 +79,7 @@ struct HomeBox: View {
                     .padding()
             }
             .frame(maxWidth: .infinity, maxHeight: 100)
-            .background(Color.clear) // Use clear color for the background
+            .background(Color.clear)
             .cornerRadius(16)
         }
     }
