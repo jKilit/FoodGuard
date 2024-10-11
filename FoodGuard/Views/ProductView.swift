@@ -8,7 +8,7 @@ struct DraggableProductView: View {
     let ingredients: [String]
     let ingredientsTags: [String]
     @Binding var isSheetPresented: Bool
-    @Binding var isScannerActive: Bool
+    @Binding var isScannerActive: Bool  
     
     var body: some View {
         let isProductSafe: Bool = productModel.compareIngredients(ingredients, ingredientTags: ingredientsTags, productName: productName)

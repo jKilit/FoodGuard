@@ -1,10 +1,3 @@
-//
-//  PreferencesModel.swift
-//  FoodGuard
-//
-//  Created by Edvin Mujanovic on 2024-02-13.
-//
-
 import Foundation
 import Observation
 
@@ -24,7 +17,8 @@ enum Ingredient: String, CaseIterable, Codable, Comparable {
             return rawValue.capitalized
         }
     }
-
+ 
+    //maybe not needed??
     // Implement the Comparable conformance
     static func < (lhs: Ingredient, rhs: Ingredient) -> Bool {
         return lhs.rawValue < rhs.rawValue

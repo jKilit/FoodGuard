@@ -1,9 +1,3 @@
-//
-//  APIManager.swift
-//  FoodGuard
-//
-//  Created by Jonathan Kilit on 2024-02-13.
-//
 import Foundation
 import Observation
 
@@ -24,21 +18,13 @@ class FoodAPI {
         print("2")
         
         do {
-            print("jag")
             // Use async/await here if your Swift version supports it
             let (data, _) = try await URLSession.shared.data(from: url)
-            print("heter")
             let decoder = JSONDecoder()
-            print("messi")
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            print("och")
             let foodInfo = try decoder.decode(FoodData.self, from: data)
-            print("ronaldo")
             foodModel = FoodModel(product: foodInfo.product, baseUrl: baseUrl)
-            print("är")
-            
             print(foodInfo)
-            print("LOADED FOOD!!")
         } catch {
             print(error)
         }

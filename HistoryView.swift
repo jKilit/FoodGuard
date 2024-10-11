@@ -29,15 +29,15 @@ struct ProductHistoryView: View {
             )
         }
         .onAppear {
-
+            
         }
     }
     private func clearHistory() {
         do {
-              try modelContext.delete(model: HistoryData.self)
-            } catch {
-                print("Error clearing history: \(error)")
-            }
+            try modelContext.delete(model: HistoryData.self)
+        } catch {
+            print("Error clearing history: \(error)")
         }
+    }
 }
 

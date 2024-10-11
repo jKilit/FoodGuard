@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @State private var API = FoodAPI()
+    @State private var API = FoodAPI() 
     @State private var preferencesModel = PreferencesModel()
 
     var body: some View {
